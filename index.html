@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Boutique</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            padding-top: 140px; /* Header + Marquee height */
+        }
+
+        .header-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 20px 40px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            max-width: 150px;
+            height: auto;
+        }
+
+        nav {
+            margin: 0;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: #c59d5f;
+            transition: width 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #c59d5f;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        .marquee-section {
+            font-weight: bold;
+            background-color: white;
+            /* color: #c59d5f; */
+            color: #8F5414;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .marquee-section p {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 30s linear infinite;
+        }
+
+        .glowing-text {
+            font-weight: bold;
+            color: #ff0000;
+            animation: glowing 1.5s infinite;
+        }
+
+        @keyframes glowing {
+            0% {
+                text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000;
+            }
+            50% {
+                text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+            }
+            100% {
+                text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000;
+            }
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(30%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .hero-section {
+            margin-top: 0;
+            position: relative;
+            height: calc(100vh - 140px);
+            overflow: hidden;
+        }
+
+        .hero-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hero-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: 100% 100%;
+            background-position: center;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            margin-bottom: 30px;
+        }
+
+        .shop-now-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: #c59d5f;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .shop-now-btn:hover {
+            background-color: #b38b50;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .category-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .category-card {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            text-align: center;
+        }
+
+        .category-overlay h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .social-links {
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: #888;
+        }
+
+        .header-social-links a {
+            color: #333;
+            margin: 0 10px;
+            font-size: 20px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .header-social-links a:hover {
+            color: #c59d5f;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <header>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/title.jpeg" alt="Boutique Logo">
+                </a>
+            </div>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="products.html">Collections</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="header-social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/nila.instyle/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.pinterest.com/" target="_blank"><i class="fab fa-pinterest"></i></a>
+        </div>
+        </header>
+        <div class="marquee-section">
+            <p><span class="glowing-text">Exclusive!</span> We are delighted to announce the grand opening of our boutique on 27th August! @ Mohanur Namakkal &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Whether you’re looking for custom outfits, elegant everyday wear, or occasion-ready designs, we’ll craft something that’s made just for you.</p>
+        </div>
+
+        <!-- <div class="marquee-section">
+            <p><span class="glowing-text">Exclusive!</span> We are delighted to announce the grand opening of our boutique on 27th August! @ Mohanur Namakkal &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Whether you’re looking for custom outfits, elegant everyday wear, or occasion-ready designs, we’ll craft something that’s made just for you.</p>
+        </div> -->
+
+        <!-- <div class="marquee-section">
+            <p>We are delighted to announce the grand opening of our boutique on 27th August!
+
+                Our boutique is designed to bring you timeless style and perfect fits, with tailoring services for both women and men. Whether you’re looking for custom outfits, elegant everyday wear, or occasion-ready designs, we’ll craft something that’s made just for you.
+                
+                🧵 Personalized Tailoring · Men & Women · Unique Fashion Experience
+                
+                We can’t wait to welcome you and help you discover a look that truly reflects your personality.
+                
+                📍 Visit us in-store from 27th August and be part of our new fashion journey.</p>
+        </div> -->
+    </div>
+
+    <div class="hero-section">
+        <div class="hero-slide active" style="background-image: url('https://images.pexels.com/photos/27155552/pexels-photo-27155552.jpeg?auto=compress&cs=tinysrgb&w=1920');">
+            <div class="hero-content">
+                <h1>New Arrivals</h1>
+                <p>Discover our latest collection</p>
+                <a href="products.html" class="shop-now-btn">Explore Now</a>
+            </div>
+        </div>
+    </div>
+      
+    <!-- <section class="category-section">
+        <h2>Shop By Category</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <img src="https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Traditional Sarees">
+                <div class="category-overlay">
+                    <h3>Women's Fashion</h3>
+                    <p>Explore the Collection</p>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://images.pexels.com/photos/4125073/pexels-photo-4125073.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Traditional Jewelry">
+                <div class="category-overlay">
+                    <h3>Accessories</h3>
+                    <p>Complete Your Look</p>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://images.pexels.com/photos/2681751/pexels-photo-2681751.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Designer Ethnic Wear">
+                <div class="category-overlay">
+                    <h3>New Arrivals</h3>
+                    <p>Latest Trends</p>
+                </div>
+            </div>
+        </div> -->
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Fashion Boutique. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const images = [
+            "https://images.pexels.com/photos/27155550/pexels-photo-27155550.jpeg?auto=compress&cs=tinysrgb&w=1920",
+            "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=1920",
+            // "https://images.pexels.com/photos/29805009/pexels-photo-29805009.jpeg?auto=compress&cs=tinysrgb&w=1920",
+            // "https://images.pexels.com/photos/18977058/pexels-photo-18977058.jpeg?auto=compress&cs=tinysrgb&w=1920",
+            "https://images.pexels.com/photos/7168818/pexels-photo-7168818.jpeg?auto=compress&cs=tinysrgb&w=1920",
+            "https://images.pexels.com/photos/1162983/pexels-photo-1162983.jpeg?auto=compress&cs=tinysrgb&w=1920",
+            "https://images.pexels.com/photos/25184955/pexels-photo-25184955.jpeg?auto=compress&cs=tinysrgb&w=1920",
+            "https://images.pexels.com/photos/4715311/pexels-photo-4715311.jpeg?auto=compress&cs=tinysrgb&w=1920",
+            // "https://images.pexels.com/photos/27155552/pexels-photo-27155552.jpeg?auto=compress&cs=tinysrgb&w=1920",
+            "https://images.pexels.com/photos/20777180/pexels-photo-20777180.jpeg?auto=compress&cs=tinysrgb&w=1920",
+            "https://images.pexels.com/photos/7364219/pexels-photo-7364219.jpeg?auto=compress&cs=tinysrgb&w=1920",
+            "https://images.pexels.com/photos/25184992/pexels-photo-25184992.jpeg?auto=compress&cs=tinysrgb&w=1920",
+            "https://images.pexels.com/photos/7139184/pexels-photo-7139184.jpeg?auto=compress&cs=tinysrgb&w=1920",
+            "https://images.pexels.com/photos/27155550/pexels-photo-27155550.jpeg?auto=compress&cs=tinysrgb&w=1920",
+            "https://images.pexels.com/photos/25185004/pexels-photo-25185004.jpeg?auto=compress&cs=tinysrgb&w=1920",
+            "https://images.pexels.com/photos/32985958/pexels-photo-32985958.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        ];
+        let currentImageIndex = 0;
+        const heroSlide = document.querySelector('.hero-slide');
+
+        function preloadImage(url) {
+            const img = new Image();
+            img.src = url;
+        }
+
+        function changeImage() {
+            heroSlide.style.opacity = 0;
+            setTimeout(() => {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                heroSlide.style.backgroundImage = `url('${images[currentImageIndex]}')`;
+                heroSlide.style.opacity = 1;
+                // Preload the next image
+                const nextImageIndex = (currentImageIndex + 1) % images.length;
+                preloadImage(images[nextImageIndex]);
+            }, 500);
+        }
+
+        // Preload the first image
+        preloadImage(images[1]);
+
+        setInterval(changeImage, 5000);
+    </script>
+</body>
+</html>
