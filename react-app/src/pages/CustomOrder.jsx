@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './CustomOrder.css';
 
-const WHATSAPP_NUMBER = process.env.MY_PHONE_NUMBER
+const WHATSAPP_NUMBER = process.env.REACT_APP_WHATSAPP_NUMBER;
 
 const INITIAL = {
   name: '', mobile: '', occasion: '', outfit: '',

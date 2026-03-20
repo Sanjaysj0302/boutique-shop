@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import './Contact.css';
 
+const WHATSAPP_NUMBER = process.env.REACT_APP_WHATSAPP_NUMBER;
+const WHATSAPP_MSG = encodeURIComponent("Hi Nila Instyle! I'm interested in your collections.");
+
 const HOURS = [
   { day: 'Monday – Friday', time: '10:00 AM – 8:00 PM' },
   { day: 'Saturday',        time: '10:00 AM – 6:00 PM' },
@@ -102,7 +105,7 @@ function Contact() {
             </div>
 
             <a
-              href="https://wa.me/918870178081?text=Hi%20Nila%20Instyle!%20I%20have%20a%20question."
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`}
               target="_blank" rel="noreferrer"
               className="wa-quick-btn"
             >

@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 import './About.css';
 
+const WHATSAPP_NUMBER = process.env.REACT_APP_WHATSAPP_NUMBER;
+const WHATSAPP_MSG = encodeURIComponent("Hi Nila Instyle! I'm interested in your collections.");
+
 const VALUES = [
   { icon: 'fas fa-star',         title: 'Quality',          desc: 'We carefully select each piece, ensuring the highest quality in materials and craftsmanship.' },
   { icon: 'fas fa-heart',        title: 'Style',             desc: 'We stay ahead of fashion trends while maintaining timeless elegance in our collections.' },
@@ -135,7 +138,7 @@ function About() {
           <div className="about-final-btns">
             <Link to="/collections" className="btn-gold">Browse Collections</Link>
             <a
-              href="https://wa.me/918870178081?text=Hi%20Nila%20Instyle!%20I%20want%20to%20know%20more."
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`}
               target="_blank" rel="noreferrer"
               className="btn-whatsapp"
             >
