@@ -147,6 +147,22 @@ function About() {
           </div>
         </div>
       </div>
+      {/* Founder */}
+      <div className="founder-section">
+        <div className="founder-card">
+          <div className="founder-icon-wrap">
+            <i className="fas fa-crown"></i>
+          </div>
+          <span className="founder-tag">The Visionary Behind</span>
+          <h2>Narmadha Navaladi</h2>
+          <div className="founder-divider"></div>
+          <p>Nila Instyle was founded and seeded by <strong>Narmadha Navaladi</strong>, whose passion for fashion and deep love for craftsmanship gave birth to this boutique. Her vision of blending tradition with modern elegance continues to inspire every design we create.</p>
+          <div className="founder-quote">
+            <i className="fas fa-quote-left"></i>
+            <span>Every thread tells a story. Every outfit is a dream made real.</span>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
