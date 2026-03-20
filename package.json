@@ -1,15 +1,14 @@
 {
-  "name": "boutique-shop-backend",
+  "name": "boutique-shop",
   "version": "1.0.0",
-  "description": "Backend for the boutique shop contact form",
-  "main": "server.js",
+  "description": "Boutique Shop - Full Stack Application",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "scripts": {
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "twilio": "^3.84.1"
+    "start": "cd backend && bun run server.js",
+    "dev": "cd backend && bun run server.js",
+    "install-all": "bun install && cd backend && bun install && cd ../frontend && bun install"
   }
 }

@@ -1,0 +1,6 @@
+{
+  "name": "boutique-shop-frontend",
+  "version": "1.0.0",
+  "description": "Frontend UI for the boutique shop website",
+  "type": "module"
+}
