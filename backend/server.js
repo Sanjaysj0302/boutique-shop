@@ -53,10 +53,15 @@ app.use((req, res, next) => {
     next();
 });
 
-// Serve static files from the frontend directory
+// Serve static files from the React build
 const path = require('path');
-const frontendPath = path.join(__dirname, '../frontend');
+const frontendPath = path.join(__dirname, '../frontend-react/build');
 app.use(express.static(frontendPath));
+
+// Fallback: serve React app for any non-API route (React Router support)
+app.get('*', (_req, res) => {
+    res.sendFile(path.join(frontendPath, 'index.html'));
+});
 
 // Handle form submission
 app.post('/send-message', (req, res) => {
