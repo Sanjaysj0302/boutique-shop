@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Collections.css';
 
-const WHATSAPP_NUMBER = process.env.REACT_APP_WHATSAPP_NUMBER;
+const WHATSAPP_NUMBER = 918870178081
 
 const CATEGORY_META = {
   all:         { label: 'All',         icon: 'fas fa-th' },

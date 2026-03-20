@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './About.css';
 
-const WHATSAPP_NUMBER = process.env.REACT_APP_WHATSAPP_NUMBER;
+const WHATSAPP_NUMBER = 918870178081
 const WHATSAPP_MSG = encodeURIComponent("Hi Nila Instyle! I'm interested in your collections.");
 
 const VALUES = [
