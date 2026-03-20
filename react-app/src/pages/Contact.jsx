@@ -1,13 +1,6 @@
 import { useState } from 'react';
 import './Contact.css';
 
-const CONTACT_ITEMS = [
-  { icon: 'fas fa-map-marker-alt', title: 'Visit Us',   lines: ['Mohanur, Namakkal', 'Tamil Nadu, India'] },
-  { icon: 'fas fa-phone-alt',      title: 'Call Us',    lines: ['+91 994-436-3616', '+91 979-157-9129'] },
-  { icon: 'fas fa-envelope',       title: 'Email Us',   lines: ['sanjaysj0302@gmail.com'] },
-  { icon: 'fab fa-whatsapp',       title: 'WhatsApp',   lines: ['+91 887-017-8081'], isWa: true },
-];
-
 const HOURS = [
   { day: 'Monday – Friday', time: '10:00 AM – 8:00 PM' },
   { day: 'Saturday',        time: '10:00 AM – 6:00 PM' },

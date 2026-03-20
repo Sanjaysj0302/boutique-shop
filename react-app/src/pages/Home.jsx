@@ -107,7 +107,6 @@ function Home() {
   const [galleryModal, setGalleryModal]           = useState(null);
   const [statsStarted, setStatsStarted]           = useState(false);
   const [openFaq, setOpenFaq]                     = useState(null);
-  const [offerVisible, setOfferVisible]           = useState(true);
   const [email, setEmail]                         = useState('');
   const [newsletterDone, setNewsletterDone]       = useState(false);
   const slideRef = useRef(null);
