@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "buildCommand": "cd react-app && npm install && npm run build",
+  "outputDirectory": "react-app/build",
+  "rewrites": [
+    { "source": "/send-message", "destination": "/api/send-message" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
