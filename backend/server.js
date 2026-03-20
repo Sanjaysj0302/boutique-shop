@@ -4,7 +4,9 @@ const bodyParser = require('body-parser');
 const twilio = require('twilio');
 
 const app = express();
-const port = process.env.port || 3000;
+const port = process.env.PORT || process.env.port || 3000;
+const host = process.env.HOST || 'localhost';
+const nodeEnv = process.env.NODE_ENV || 'development';
 
 // Twilio credentials from environment variables
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
@@ -28,6 +30,28 @@ try {
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+// Enable CORS for production deployment
+app.use((req, res, next) => {
+    const origin = req.headers.origin;
+    const allowedOrigins = [
+        'http://localhost:3000',
+        'http://localhost:5173',
+        process.env.FRONTEND_URL, // For deployed frontend
+        'https://nila-instyle.com', // Add your production domain
+    ].filter(Boolean);
+
+    if (allowedOrigins.includes(origin)) {
+        res.header('Access-Control-Allow-Origin', origin);
+    }
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+
+    if (req.method === 'OPTIONS') {
+        return res.sendStatus(200);
+    }
+    next();
+});
 
 // Serve static files from the frontend directory
 const path = require('path');
@@ -64,6 +88,12 @@ app.post('/send-message', (req, res) => {
         });
 });
 
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+app.listen(port, host, () => {
+    const url = host === 'localhost'
+        ? `http://localhost:${port}`
+        : `http://${host}:${port}`;
+
+    console.log(`\n🚀 Server is running on ${url}`);
+    console.log(`📌 Environment: ${nodeEnv}`);
+    console.log(`📍 Host: ${host}:${port}\n`);
 });

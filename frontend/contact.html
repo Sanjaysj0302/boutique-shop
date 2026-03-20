@@ -373,7 +373,10 @@
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
 
-            fetch('http://localhost:3000/send-message', {
+            // Use dynamic API URL based on current host
+            const apiUrl = `${window.location.protocol}//${window.location.host}/send-message`;
+
+            fetch(apiUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
