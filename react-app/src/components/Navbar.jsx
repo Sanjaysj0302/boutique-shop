@@ -12,6 +12,7 @@ function Navbar() {
       <nav>
         <NavLink to="/" end>Home</NavLink>
         <NavLink to="/collections">Collections</NavLink>
+        <NavLink to="/custom-order">Custom Order</NavLink>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/contact">Contact</NavLink>
       </nav>

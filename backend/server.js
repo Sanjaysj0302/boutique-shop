@@ -55,13 +55,8 @@ app.use((req, res, next) => {
 
 // Serve static files from the React build
 const path = require('path');
-const frontendPath = path.join(__dirname, '../frontend-react/build');
+const frontendPath = path.join(__dirname, '../react-app/build');
 app.use(express.static(frontendPath));
-
-// Fallback: serve React app for any non-API route (React Router support)
-app.get('*', (_req, res) => {
-    res.sendFile(path.join(frontendPath, 'index.html'));
-});
 
 // Handle form submission
 app.post('/send-message', (req, res) => {
@@ -93,7 +88,14 @@ app.post('/send-message', (req, res) => {
         });
 });
 
-app.listen(port, host, () => {
+// Fallback: serve React app for any non-API route (React Router support)
+app.get('*', (_req, res) => {
+    res.sendFile(path.join(frontendPath, 'index.html'));
+});
+
+const http = require('http');
+const server = http.createServer({ maxHeaderSize: 32768 }, app);
+server.listen(port, host, () => {
     const url = host === 'localhost'
         ? `http://localhost:${port}`
         : `http://${host}:${port}`;
