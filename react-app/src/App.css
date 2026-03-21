@@ -9,6 +9,11 @@ html, body {
   overflow-x: hidden;
 }
 
+/* Scale down entire UI on mobile */
+@media (max-width: 768px) { html { font-size: 14px; } }
+@media (max-width: 480px) { html { font-size: 12px; } }
+@media (max-width: 360px) { html { font-size: 11px; } }
+
 body {
   padding-top: 145px;
 }
@@ -216,9 +221,10 @@ footer {
   header { padding: 10px 15px; gap: 8px; }
   .logo img { max-width: 90px; }
 
-  .header-social-links a { margin: 0 5px; font-size: 13px; }
+  /* Hide social links on small phones to save space */
+  .header-social-links { display: none; }
 
-  nav a { padding: 4px 6px; margin: 1px; font-size: 9px; letter-spacing: 0.3px; }
+  nav a { padding: 5px 8px; margin: 2px 1px; font-size: 10px; letter-spacing: 0.5px; }
   .marquee-item { font-size: 0.7em; }
   .page-title { padding: 40px 15px; }
   .page-title h1 { font-size: 1.8em; }
