@@ -196,35 +196,35 @@ footer {
 }
 
 @media (max-width: 768px) {
-  body { padding-top: 185px; }
+  body { padding-top: 155px; }
 
   header {
-    padding: 12px 20px;
+    padding: 8px 15px;
     flex-wrap: wrap;
     flex-direction: column;
-    gap: 10px;
+    gap: 6px;
   }
 
-  .logo img { max-width: 110px; }
+  .logo img { max-width: 80px; }
   nav { order: 3; width: 100%; text-align: center; }
-  nav a { padding: 7px 10px; margin: 3px 2px; font-size: 11px; letter-spacing: 0.8px; display: inline-block; }
+  nav a { padding: 5px 8px; margin: 2px 1px; font-size: 10px; letter-spacing: 0.5px; display: inline-block; }
   .header-social-links { order: 2; }
-  .header-social-links a { margin: 0 8px; font-size: 16px; }
+  .header-social-links a { margin: 0 6px; font-size: 13px; }
   .marquee-item { font-size: 0.75em; }
   .page-title h1 { font-size: 2.5em; }
   footer { padding: 30px 15px; }
 }
 
 @media (max-width: 480px) {
-  body { padding-top: 130px; }
+  body { padding-top: 115px; }
 
-  header { padding: 10px 15px; gap: 8px; }
-  .logo img { max-width: 90px; }
+  header { padding: 6px 12px; gap: 5px; }
+  .logo img { max-width: 65px; }
 
   /* Hide social links on small phones to save space */
   .header-social-links { display: none; }
 
-  nav a { padding: 5px 8px; margin: 2px 1px; font-size: 10px; letter-spacing: 0.5px; }
+  nav a { padding: 4px 6px; margin: 1px; font-size: 9px; letter-spacing: 0.3px; }
   .marquee-item { font-size: 0.7em; }
   .page-title { padding: 40px 15px; }
   .page-title h1 { font-size: 1.8em; }
@@ -234,9 +234,9 @@ footer {
 }
 
 @media (max-width: 360px) {
-  body { padding-top: 120px; }
-  .logo img { max-width: 80px; }
-  nav a { padding: 4px 6px; margin: 2px 1px; font-size: 9px; }
+  body { padding-top: 100px; }
+  .logo img { max-width: 55px; }
+  nav a { padding: 3px 5px; margin: 1px; font-size: 8px; }
   .marquee-item { font-size: 0.65em; }
   .page-title h1 { font-size: 1.5em; }
 }
