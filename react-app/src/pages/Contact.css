@@ -61,14 +61,15 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   border-radius: 10px 10px 0 0;
-  width: 460px;
+  width: 860px;
   box-sizing: border-box;
 }
 .contact-map-header i { font-size: 1.1em; }
 
 .contact-map-box {
-  width: 460px;
+  width: 860px;
   height: 460px;
+  max-width: 100%;
   border-radius: 0 0 16px 16px;
   overflow: hidden;
   box-shadow: 0 8px 30px rgba(0,0,0,0.15);
