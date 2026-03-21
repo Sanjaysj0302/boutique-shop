@@ -84,14 +84,14 @@ function About() {
           <div className="about-divider"></div>
           <p>We believe that fashion is more than just clothing — it's a form of self-expression and confidence. Our mission is to make every customer feel beautiful and empowered through our carefully curated selection.</p>
           <p>We are committed to offering not just products, but a complete fashion experience that inspires and delights. From the first stitch to the final fitting, every detail matters to us.</p>
-          <Link to="/custom-order" className="about-cta-btn">
-            <i className="fas fa-cut"></i> Start Your Custom Order
-          </Link>
         </div>
         <div className="about-split-img">
           <img src="https://images.pexels.com/photos/6634451/pexels-photo-6634451.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Our Mission" />
           <div className="about-img-badge right"><i className="fas fa-heart"></i> Made with Love</div>
         </div>
+        <Link to="/custom-order" className="about-cta-btn">
+            <i className="fas fa-cut"></i> Start Your Custom Order
+        </Link>
       </div>
 
       {/* Values */}

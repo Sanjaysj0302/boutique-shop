@@ -89,7 +89,7 @@ function CustomOrder() {
           </div>
 
           <div className="co-preview-img">
-            <img src="https://images.pexels.com/photos/6461197/pexels-photo-6461197.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Custom Outfit Preview" />
+            <img src="https://images.pexels.com/photos/6665057/pexels-photo-6665057.jpeg?cs=tinysrgb&w=800" alt="Custom Outfit Preview" />
           </div>
         </div>
 
