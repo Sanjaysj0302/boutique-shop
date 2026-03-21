@@ -51,24 +51,6 @@ function Contact() {
         ))}
       </div> */}
 
-      {/* Map */}
-      <div className="contact-map-section">
-        <div className="contact-map-header">
-          <i className="fas fa-map-marker-alt"></i>
-          <span>Find Us Here</span>
-        </div>
-        <iframe
-          title="Nila Instyle Location"
-          src="https://maps.google.com/maps?q=11.0651517,78.1407908&z=17&output=embed"
-          width="100%"
-          height="340"
-          style={{ border: 0, display: 'block' }}
-          allowFullScreen=""
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </div>
-
       {/* Main section */}
       <div className="contact-main">
 
@@ -166,6 +148,25 @@ function Contact() {
           </div>
         </div>
 
+
+      </div>
+
+      {/* Map */}
+      <div className="contact-map-section">
+        <div className="contact-map-header">
+          <i className="fas fa-map-marker-alt"></i>
+          <span>Find Us Here</span>
+        </div>
+        <iframe
+          title="Nila Instyle Location"
+          src="https://maps.google.com/maps?q=11.0651517,78.1407908&z=17&output=embed"
+          width="100%"
+          height="340"
+          style={{ border: 0, display: 'block' }}
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
     </>
   );
