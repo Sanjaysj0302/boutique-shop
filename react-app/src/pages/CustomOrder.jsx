@@ -87,6 +87,10 @@ function CustomOrder() {
             <i className="fas fa-info-circle"></i>
             <p>Custom orders typically take <strong>5–10 working days</strong>. Rush orders may be available — mention it in your notes.</p>
           </div>
+
+          <div className="co-preview-img">
+            <img src="https://images.pexels.com/photos/6461197/pexels-photo-6461197.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Custom Outfit Preview" />
+          </div>
         </div>
 
         <form className="custom-order-form" onSubmit={sendViaWhatsApp}>

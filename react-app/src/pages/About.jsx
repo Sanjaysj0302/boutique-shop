@@ -77,7 +77,7 @@ function About() {
       </div>
 
       {/* Our Mission */}
-      <div className="about-split-section reverse">
+      <div className="about-split-section">
         <div className="about-split-text">
           <span className="about-section-tag">What Drives Us</span>
           <h2>Our Mission</h2>
