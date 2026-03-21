@@ -161,7 +161,7 @@ function Contact() {
           <iframe
             title="Nila Instyle Location"
             src="https://maps.google.com/maps?q=11.0651517,78.1407908&z=17&output=embed"
-            style={{ border: 0, display: 'block', width: '100%', height: '100%' }}
+            style={{ border: 0, display: 'block', width: '300%', height: '100%' }}
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

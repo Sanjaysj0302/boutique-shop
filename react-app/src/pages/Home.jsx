@@ -21,7 +21,7 @@ const IMAGES = [
 
 const STATS = [
   { value: 500,  suffix: '+', label: 'Happy Customers' },
-  { value: 3,    suffix: '+', label: 'Years Experience' },
+  { value: 5,    suffix: '+', label: 'Years Experience' },
   { value: 1000, suffix: '+', label: 'Designs Created' },
   { value: 100,  suffix: '%', label: 'Satisfaction Rate' },
 ];
@@ -223,7 +223,7 @@ function Home() {
               <div className="occasion-overlay">
                 <i className={occ.icon}></i>
                 <h3>{occ.label}</h3>
-                <span>Shop Now <i className="fas fa-arrow-right"></i></span>
+                <span>Explore Now <i className="fas fa-arrow-right"></i></span>
               </div>
             </Link>
           ))}

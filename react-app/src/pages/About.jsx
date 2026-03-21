@@ -12,7 +12,7 @@ const VALUES = [
 ];
 
 const MILESTONES = [
-  { value: '2025', label: 'Founded' },
+  { value: '2021', label: 'Founded' },
   { value: '500+', label: 'Happy Customers' },
   { value: '1000+', label: 'Outfits Crafted' },
   { value: '100%', label: 'Handmade' },

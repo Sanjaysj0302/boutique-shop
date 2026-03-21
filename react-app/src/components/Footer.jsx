@@ -7,7 +7,7 @@ function Footer() {
         {/* <a href="https://www.twitter.com/" target="_blank" rel="noreferrer"><i className="fab fa-twitter"></i></a> */}
         <a href="https://www.pinterest.com/" target="_blank" rel="noreferrer"><i className="fab fa-pinterest"></i></a>
       </div>
-      <p>&copy; 2025 Fashion Boutique. All rights reserved.</p>
+      <p>&copy; 2026 Fashion Boutique. All rights reserved.</p>
     </footer>
   );
 }
