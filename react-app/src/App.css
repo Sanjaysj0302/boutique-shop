@@ -216,10 +216,9 @@ footer {
   header { padding: 10px 15px; gap: 8px; }
   .logo img { max-width: 90px; }
 
-  /* Hide social links in header on small phones to save space */
-  .header-social-links { display: none; }
+  .header-social-links a { margin: 0 5px; font-size: 13px; }
 
-  nav a { padding: 5px 8px; margin: 2px 1px; font-size: 10px; letter-spacing: 0.5px; }
+  nav a { padding: 4px 6px; margin: 1px; font-size: 9px; letter-spacing: 0.3px; }
   .marquee-item { font-size: 0.7em; }
   .page-title { padding: 40px 15px; }
   .page-title h1 { font-size: 1.8em; }

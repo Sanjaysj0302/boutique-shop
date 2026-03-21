@@ -7,6 +7,7 @@ import Marquee from './components/Marquee';
 import Footer from './components/Footer';
 import FloatingButtons from './components/FloatingButtons';
 import SplashScreen from './components/SplashScreen';
+import SwipeNavigator from './components/SwipeNavigator';
 
 import Home from './pages/Home';
 import Collections from './pages/Collections';
@@ -26,15 +27,17 @@ function App() {
           <Marquee />
         </div>
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/collections" element={<Collections />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/custom-order" element={<CustomOrder />} />
-        </Routes>
+        <SwipeNavigator>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/collections" element={<Collections />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/custom-order" element={<CustomOrder />} />
+          </Routes>
 
-        <Footer />
+          <Footer />
+        </SwipeNavigator>
         <FloatingButtons />
       </BrowserRouter>
     </>
