@@ -152,9 +152,9 @@ function Collections() {
 
               <div className="coll-card-body">
                 <h3>{product.title}</h3>
-                <button className="coll-wa-btn" onClick={() => orderOnWhatsApp(product)}>
+                {/* <button className="coll-wa-btn" onClick={() => orderOnWhatsApp(product)}>
                   <i className="fab fa-whatsapp"></i> Order via WhatsApp
-                </button>
+                </button> */}
               </div>
             </div>
           ))}
