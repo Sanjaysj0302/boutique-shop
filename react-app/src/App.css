@@ -10,9 +10,9 @@ html, body {
 }
 
 /* Scale down entire UI on mobile */
-@media (max-width: 768px) { html { font-size: 14px; } }
-@media (max-width: 480px) { html { font-size: 12px; } }
-@media (max-width: 360px) { html { font-size: 11px; } }
+@media (max-width: 768px) { html { font-size: 13px; } }
+@media (max-width: 480px) { html { font-size: 11px; } }
+@media (max-width: 360px) { html { font-size: 10px; } }
 
 body {
   padding-top: 145px;
