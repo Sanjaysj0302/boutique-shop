@@ -8,8 +8,12 @@ function Navbar() {
   return (
     <header>
       <div className="logo">
-        <NavLink to="/" onClick={close}>
+        <NavLink to="/" onClick={close} className="logo-link">
           <img src="/images/title.jpeg" alt="Boutique Logo" />
+          <div className="logo-text">
+            <span className="logo-name">Nila Instyle</span>
+            <span className="logo-tagline">Boutique</span>
+          </div>
         </NavLink>
       </div>
 
@@ -40,6 +44,9 @@ function Navbar() {
         <div className="mobile-menu-brand">
           <img src="/images/title.jpeg" alt="Nila Instyle" />
           <span>Nila Instyle</span>
+          <button className="mobile-menu-close" onClick={close} aria-label="Close menu">
+            <i className="fas fa-times"></i>
+          </button>
         </div>
 
         <nav className="mobile-nav">
