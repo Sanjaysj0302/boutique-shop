@@ -5,6 +5,7 @@ import './Home.css';
 const WHATSAPP_NUMBER = 918870178081
 
 const IMAGES = [
+  'https://images.pexels.com/photos/7364219/pexels-photo-7364219.jpeg?auto=compress&cs=tinysrgb&w=1920',
   'https://images.pexels.com/photos/27155550/pexels-photo-27155550.jpeg?auto=compress&cs=tinysrgb&w=1920',
   'https://images.pexels.com/photos/20777180/pexels-photo-20777180.jpeg?auto=compress&cs=tinysrgb&w=1920',
   'https://images.pexels.com/photos/7782013/pexels-photo-7782013.jpeg?auto=compress&cs=tinysrgb&w=1920',
@@ -12,7 +13,6 @@ const IMAGES = [
   'https://images.pexels.com/photos/1162983/pexels-photo-1162983.jpeg?auto=compress&cs=tinysrgb&w=1920',
   'https://images.pexels.com/photos/25184955/pexels-photo-25184955.jpeg?auto=compress&cs=tinysrgb&w=1920',
   'https://images.pexels.com/photos/4715311/pexels-photo-4715311.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  'https://images.pexels.com/photos/7364219/pexels-photo-7364219.jpeg?auto=compress&cs=tinysrgb&w=1920',
   'https://images.pexels.com/photos/25184992/pexels-photo-25184992.jpeg?auto=compress&cs=tinysrgb&w=1920',
   'https://images.pexels.com/photos/7139184/pexels-photo-7139184.jpeg?auto=compress&cs=tinysrgb&w=1920',
   'https://images.pexels.com/photos/25185004/pexels-photo-25185004.jpeg?auto=compress&cs=tinysrgb&w=1920',
