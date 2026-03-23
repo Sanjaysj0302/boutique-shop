@@ -43,21 +43,11 @@ function Navbar() {
         </div>
 
         <nav className="mobile-nav">
-          <NavLink to="/" end onClick={close}>
-            <i className="fas fa-home"></i><span>Home</span>
-          </NavLink>
-          <NavLink to="/collections" onClick={close}>
-            <i className="fas fa-th-large"></i><span>Collections</span>
-          </NavLink>
-          <NavLink to="/custom-order" onClick={close}>
-            <i className="fas fa-cut"></i><span>Custom Order</span>
-          </NavLink>
-          <NavLink to="/about" onClick={close}>
-            <i className="fas fa-heart"></i><span>About</span>
-          </NavLink>
-          <NavLink to="/contact" onClick={close}>
-            <i className="fas fa-envelope"></i><span>Contact</span>
-          </NavLink>
+          <NavLink to="/" end onClick={close}><i className="fas fa-home"></i><span>Home</span></NavLink>
+          <NavLink to="/collections" onClick={close}><i className="fas fa-th-large"></i><span>Collections</span></NavLink>
+          <NavLink to="/custom-order" onClick={close}><i className="fas fa-cut"></i><span>Custom Order</span></NavLink>
+          <NavLink to="/about" onClick={close}><i className="fas fa-heart"></i><span>About</span></NavLink>
+          <NavLink to="/contact" onClick={close}><i className="fas fa-envelope"></i><span>Contact</span></NavLink>
         </nav>
 
         <div className="mobile-menu-footer">
