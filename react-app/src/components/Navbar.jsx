@@ -32,6 +32,12 @@ function Navbar() {
         <a href="https://www.pinterest.com/" target="_blank" rel="noreferrer"><i className="fab fa-pinterest"></i></a>
       </div>
 
+      {/* Center brand — mobile only */}
+      {/* <div className="header-center">
+        <span className="header-brand-name">Nila Instyle</span>
+        {/* <span className="header-brand-tagline">be your own label</span> */}
+      {/* </div> */} 
+
       {/* Hamburger button — mobile only */}
       <button className="hamburger" onClick={() => setMenuOpen(o => !o)} aria-label="Menu">
         <i className={menuOpen ? 'fas fa-times' : 'fas fa-bars'}></i>

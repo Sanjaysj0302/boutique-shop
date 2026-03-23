@@ -6,8 +6,7 @@
 }
 
 html, body {
-  overflow-x: hidden;
-  height: 100%;
+  overflow-x: clip;
 }
 
 #root {
@@ -17,12 +16,6 @@ html, body {
 }
 
 .app-body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.page-content {
   flex: 1;
 }
 
@@ -224,20 +217,68 @@ nav a.active {
 footer {
   background-color: #333;
   color: white;
-  text-align: center;
-  padding: 40px 20px;
+  padding: 22px 40px;
 }
 
-.social-links { margin: 20px 0; }
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-copy {
+  font-size: 0.82em;
+  color: #fff;
+  flex: 1;
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+  flex: 1;
+  justify-content: center;
+}
 
 .social-links a {
-  color: white;
-  margin: 0 10px;
+  color: #fff;
   font-size: 20px;
   text-decoration: none;
+  transition: color 0.3s;
 }
 
-.social-links a:hover { color: #888; }
+.social-links a:hover { color: #c59d5f; }
+
+.footer-credit {
+  font-size: 0.82em;
+  color: #fff;
+  flex: 1;
+  text-align: right;
+}
+
+/* ── Header Center (mobile) ── */
+.header-center {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.3;
+}
+
+.header-brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1em;
+  font-weight: 700;
+  color: #0f0b07b8;
+  white-space: nowrap;
+}
+
+.header-brand-tagline {
+  font-size: 0.58em;
+  color: #c59d5f;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
 
 /* ── Hamburger ── */
 .hamburger {
@@ -442,12 +483,17 @@ footer {
 
   .logo img { width: 50px; height: 50px; }
   .logo-name { font-size: 0.9em; }
+  .header-center { display: flex; }
   .desktop-nav { display: none; }
   .desktop-social { display: none; }
+  /* .logo-text { display: none; } */
   .hamburger { display: block; }
   .marquee-item { font-size: 0.75em; }
   .page-title h1 { font-size: 2.5em; }
-  footer { padding: 30px 15px; }
+  footer { padding: 20px 15px; }
+  .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+  .footer-copy, .footer-credit { text-align: center; flex: unset; }
+  .social-links { flex: unset; }
 }
 
 @media (max-width: 480px) {
@@ -461,8 +507,7 @@ footer {
   .page-title { padding: 40px 15px; }
   .page-title h1 { font-size: 1.8em; }
   .page-title p { font-size: 0.9em; }
-  footer { padding: 20px 15px; font-size: 0.85em; }
-  .social-links a { margin: 0 8px; font-size: 18px; }
+  footer { padding: 16px 15px; font-size: 0.85em; }
 }
 
 @media (max-width: 360px) {

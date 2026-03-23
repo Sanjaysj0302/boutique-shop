@@ -6,12 +6,12 @@ const WHATSAPP_NUMBER = 918870178081
 
 const IMAGES = [
   'https://images.pexels.com/photos/27155550/pexels-photo-27155550.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=1920',
+  'https://images.pexels.com/photos/20777180/pexels-photo-20777180.jpeg?auto=compress&cs=tinysrgb&w=1920',
+  'https://images.pexels.com/photos/7782013/pexels-photo-7782013.jpeg?auto=compress&cs=tinysrgb&w=1920',
   'https://images.pexels.com/photos/7168818/pexels-photo-7168818.jpeg?auto=compress&cs=tinysrgb&w=1920',
   'https://images.pexels.com/photos/1162983/pexels-photo-1162983.jpeg?auto=compress&cs=tinysrgb&w=1920',
   'https://images.pexels.com/photos/25184955/pexels-photo-25184955.jpeg?auto=compress&cs=tinysrgb&w=1920',
   'https://images.pexels.com/photos/4715311/pexels-photo-4715311.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  'https://images.pexels.com/photos/20777180/pexels-photo-20777180.jpeg?auto=compress&cs=tinysrgb&w=1920',
   'https://images.pexels.com/photos/7364219/pexels-photo-7364219.jpeg?auto=compress&cs=tinysrgb&w=1920',
   'https://images.pexels.com/photos/25184992/pexels-photo-25184992.jpeg?auto=compress&cs=tinysrgb&w=1920',
   'https://images.pexels.com/photos/7139184/pexels-photo-7139184.jpeg?auto=compress&cs=tinysrgb&w=1920',
@@ -30,7 +30,7 @@ const OCCASIONS = [
   { label: 'Wedding',  img: 'https://images.pexels.com/photos/1456613/pexels-photo-1456613.jpeg?auto=compress&cs=tinysrgb&w=800', icon: 'fas fa-ring' },
   { label: 'Festival', img: 'https://images.pexels.com/photos/3622622/pexels-photo-3622622.jpeg?auto=compress&cs=tinysrgb&w=800', icon: 'fas fa-star' },
   { label: 'Party',    img: 'https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=800', icon: 'fas fa-music' },
-  { label: 'Casual',   img: 'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800', icon: 'fas fa-sun' },
+  { label: 'Casual',   img: 'https://images.pexels.com/photos/36325981/pexels-photo-36325981.jpeg?auto=compress&cs=tinysrgb&w=800', icon: 'fas fa-sun' },
 ];
 
 const STEPS = [
@@ -58,7 +58,7 @@ const TESTIMONIALS = [
 
 const GALLERY = [
   'https://images.pexels.com/photos/7249953/pexels-photo-7249953.jpeg?auto=compress&cs=tinysrgb&w=600',
-  'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=600',
+  'https://images.pexels.com/photos/36090333/pexels-photo-36090333.jpeg?auto=compress&cs=tinysrgb&w=600',
   'https://images.pexels.com/photos/7168818/pexels-photo-7168818.jpeg?auto=compress&cs=tinysrgb&w=600',
   'https://images.pexels.com/photos/4715311/pexels-photo-4715311.jpeg?auto=compress&cs=tinysrgb&w=600',
   'https://images.pexels.com/photos/1162983/pexels-photo-1162983.jpeg?auto=compress&cs=tinysrgb&w=600',

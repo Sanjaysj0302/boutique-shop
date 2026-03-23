@@ -71,7 +71,7 @@ function Contact() {
               </div>
               <div className="contact-detail">
                 <i className="fas fa-envelope"></i>
-                <div><strong>Email</strong><span>sanjaysj0302@gmail.com</span></div>
+                <div><strong>Email</strong><span>nila-instyle@gmail.com</span></div>
               </div>
             </div>
 
