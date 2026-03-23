@@ -66,7 +66,8 @@ function Collections() {
   });
 
   const orderOnWhatsApp = (product) => {
-    const msg = encodeURIComponent(`Hi Nila Instyle! I'm interested in ordering: ${product.title} (${product.category}). Please let me know the price and availability.`);
+    const imageUrl = `${window.location.origin}${product.src}`;
+    const msg = encodeURIComponent(`Hi Nila Instyle! I'm interested in ordering: ${product.title} (${product.category}).\nImage: ${imageUrl}\nPlease let me know the price and availability.`);
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
   };
 
