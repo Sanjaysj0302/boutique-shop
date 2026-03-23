@@ -8,8 +8,8 @@ function Navbar() {
   return (
     <header>
       <div className="logo">
-        <NavLink to="/" onClick={close} className="logo-link">
-          <img src="/images/title.jpeg" alt="Boutique Logo" />
+        <NavLink to="/" className="logo-link">
+          <img src="/images/title.jpeg" alt="Nila Instyle" />
           <div className="logo-text">
             <span className="logo-name">Nila Instyle</span>
             <span className="logo-tagline">Boutique</span>

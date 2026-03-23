@@ -32,7 +32,7 @@ html, body {
 @media (max-width: 360px) { html { font-size: 10px; } }
 
 body {
-  padding-top: 145px;
+  padding-top: 130px;
 }
 
 /* ── Header ── */
@@ -74,17 +74,18 @@ header {
 .logo::after  { right: -60px; transform: translateY(-50%) scaleX(-1); }
 
 .logo-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
   text-decoration: none;
 }
 
 .logo img {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center;
   border: 2px solid #c59d5f;
   flex-shrink: 0;
 }
@@ -92,23 +93,24 @@ header {
 .logo-text {
   display: flex;
   flex-direction: column;
-  line-height: 1.2;
+  line-height: 1.3;
 }
 
 .logo-name {
   font-family: 'Playfair Display', serif;
-  font-size: 1.1em;
+  font-size: 1em;
   font-weight: 700;
   color: #222;
-  letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 
 .logo-tagline {
-  font-size: 0.65em;
+  font-size: 0.6em;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #c59d5f;
+  white-space: nowrap;
 }
 
 /* ── Nav ── */
@@ -251,37 +253,39 @@ footer {
 .mobile-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
   z-index: 998;
-  backdrop-filter: blur(2px);
 }
 
-/* ── Mobile Menu (slide from right) ── */
+/* ── Mobile Menu (drop from top) ── */
 .mobile-menu {
   position: fixed;
-  top: 0;
+  top: 100px;
   right: 0;
-  height: 100vh;
   width: 75%;
-  max-width: 300px;
+  max-width: 280px;
   background: linear-gradient(160deg, #1a1a1a 0%, #2a2a2a 100%);
   z-index: 999;
   display: flex;
   flex-direction: column;
-  transform: translateX(100%);
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 0 0 0 12px;
+  transform: scaleY(0);
+  transform-origin: top right;
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
   overflow: hidden;
 }
 
 .mobile-menu.open {
-  transform: translateX(0);
+  transform: scaleY(1);
+  opacity: 1;
 }
 
 .mobile-menu-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 20px 24px 16px;
+  gap: 10px;
+  padding: 14px 18px 12px;
   border-bottom: 1px solid rgba(197, 157, 95, 0.3);
   position: relative;
 }
@@ -309,8 +313,8 @@ footer {
 }
 
 .mobile-menu-brand img {
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #c59d5f;
@@ -327,17 +331,15 @@ footer {
 .mobile-nav {
   display: flex;
   flex-direction: column;
-  padding: 8px 0;
-  flex: 1;
-  justify-content: center;
+  padding: 6px 0;
 }
 
 .mobile-nav a {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 11px 24px;
-  font-size: 12px;
+  gap: 12px;
+  padding: 9px 18px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 1.2px;
   text-transform: uppercase;
@@ -373,12 +375,12 @@ footer {
 
 /* ── Mobile Menu Footer ── */
 .mobile-menu-footer {
-  padding: 12px 24px 16px;
+  padding: 10px 18px 14px;
   border-top: 1px solid rgba(197, 157, 95, 0.3);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .mobile-menu-tagline {
@@ -423,7 +425,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-  body { padding-top: 80px; }
+  body { padding-top: 100px; }
 
   header {
     padding: 10px 18px;
@@ -434,9 +436,8 @@ footer {
     position: relative;
   }
 
-  .logo img { width: 40px; height: 40px; }
-  .logo-name { font-size: 1em; }
-  .logo-tagline { font-size: 0.6em; }
+  .logo img { width: 44px; height: 44px; }
+  .logo-name { font-size: 0.9em; }
   .desktop-nav { display: none; }
   .desktop-social { display: none; }
   .hamburger { display: block; }
@@ -446,9 +447,12 @@ footer {
 }
 
 @media (max-width: 480px) {
-  body { padding-top: 75px; }
+  body { padding-top: 90px; }
+  .mobile-menu { top: 90px; }
   header { padding: 8px 14px; }
-  .logo img { width: 36px; height: 36px; }
+  .logo img { width: 38px; height: 38px; }
+  .logo-name { font-size: 0.82em; }
+  .logo-tagline { font-size: 0.55em; letter-spacing: 1.5px; }
   .marquee-item { font-size: 0.7em; }
   .page-title { padding: 40px 15px; }
   .page-title h1 { font-size: 1.8em; }
@@ -458,8 +462,9 @@ footer {
 }
 
 @media (max-width: 360px) {
-  body { padding-top: 70px; }
-  .logo img { width: 32px; height: 32px; }
+  body { padding-top: 85px; }
+  .mobile-menu { top: 85px; }
+  .logo img { width: 34px; height: 34px; }
   .marquee-item { font-size: 0.65em; }
   .page-title h1 { font-size: 1.5em; }
 }
