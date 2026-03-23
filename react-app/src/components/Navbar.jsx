@@ -33,22 +33,45 @@ function Navbar() {
         <i className={menuOpen ? 'fas fa-times' : 'fas fa-bars'}></i>
       </button>
 
-      {/* Mobile menu */}
-      {menuOpen && (
-        <div className="mobile-menu">
-          <nav className="mobile-nav">
-            <NavLink to="/" end onClick={close}>Home</NavLink>
-            <NavLink to="/collections" onClick={close}>Collections</NavLink>
-            <NavLink to="/custom-order" onClick={close}>Custom Order</NavLink>
-            <NavLink to="/about" onClick={close}>About</NavLink>
-            <NavLink to="/contact" onClick={close}>Contact</NavLink>
-          </nav>
+      {/* Mobile menu overlay */}
+      {menuOpen && <div className="mobile-overlay" onClick={close} />}
+
+      <div className={`mobile-menu${menuOpen ? ' open' : ''}`}>
+        <div className="mobile-menu-brand">
+          <img src="/images/title.jpeg" alt="Nila Instyle" />
+          <span>Nila Instyle</span>
+        </div>
+
+        <nav className="mobile-nav">
+          <NavLink to="/" end onClick={close}>
+            <i className="fas fa-home"></i><span>Home</span>
+          </NavLink>
+          <NavLink to="/collections" onClick={close}>
+            <i className="fas fa-th-large"></i><span>Collections</span>
+          </NavLink>
+          <NavLink to="/custom-order" onClick={close}>
+            <i className="fas fa-cut"></i><span>Custom Order</span>
+          </NavLink>
+          <NavLink to="/about" onClick={close}>
+            <i className="fas fa-heart"></i><span>About</span>
+          </NavLink>
+          <NavLink to="/contact" onClick={close}>
+            <i className="fas fa-envelope"></i><span>Contact</span>
+          </NavLink>
+        </nav>
+
+        <div className="mobile-menu-footer">
+          <p className="mobile-menu-tagline">Custom stitching · Made just for you</p>
           <div className="mobile-social">
-            <a href="https://www.instagram.com/nila.instyle/" target="_blank" rel="noreferrer"><i className="fab fa-instagram"></i></a>
-            <a href="https://www.pinterest.com/" target="_blank" rel="noreferrer"><i className="fab fa-pinterest"></i></a>
+            <a href="https://www.instagram.com/nila.instyle/" target="_blank" rel="noreferrer">
+              <i className="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.pinterest.com/" target="_blank" rel="noreferrer">
+              <i className="fab fa-pinterest"></i>
+            </a>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }
