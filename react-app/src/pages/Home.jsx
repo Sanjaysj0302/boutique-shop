@@ -50,10 +50,10 @@ const FEATURED = [
 ];
 
 const TESTIMONIALS = [
-  { name: 'Sofia N.',    location: 'Chennai', text: 'Absolutely love the quality and designs here! Got my saree blouse stitched perfectly. Highly recommend Nila Instyle!', stars: 5 },
-  { name: 'Nithra Aakash.',   location: 'Mohanur',    text: "The custom outfit for my daughter's was stunning. Great craftsmanship.", stars: 5 },
-  { name: 'Sanjana P.', location: 'Namakkal',  text: 'Best boutique in Mohanur! The tops and dress materials are so trendy and affordable. Will definitely come back!', stars: 5 },
-  { name: 'Malarvizhi P.',  location: 'Namakkal', text: 'Beautiful collection and excellent stitching. The team understood exactly what I wanted. Very satisfied!', stars: 5 },
+  { name: 'Sofia N',    location: 'Chennai', text: 'Absolutely love the quality and designs here! Got my saree blouse stitched perfectly. Highly recommend Nila Instyle!', stars: 5 },
+  { name: 'Nithra Aakash',   location: 'Mohanur',    text: "The custom outfit for my daughter's was stunning. Great craftsmanship.", stars: 5 },
+  { name: 'Sanjana P', location: 'Namakkal',  text: 'Best boutique in Mohanur! The tops and dress materials are so trendy and affordable. Will definitely come back!', stars: 5 },
+  { name: 'Malarvizhi P',  location: 'Namakkal', text: 'Beautiful collection and excellent stitching. The team understood exactly what I wanted. Very satisfied!', stars: 5 },
 ];
 
 const GALLERY = [
