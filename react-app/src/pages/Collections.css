@@ -492,6 +492,39 @@
 .coll-sg-tip a { color: #c59d5f; font-weight: 600; }
 
 /* ══════════════════════════════
+   OCCASION BANNER
+══════════════════════════════ */
+.coll-occasion-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fdf6ec;
+  border: 1px solid #e8d5b0;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin: 16px 40px 0;
+  font-size: 0.92em;
+  color: #7a5c2e;
+}
+.coll-occasion-banner i { color: #c59d5f; }
+.coll-occasion-banner strong { color: #c59d5f; }
+.coll-occasion-clear {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: 1px solid #c59d5f;
+  color: #c59d5f;
+  border-radius: 20px;
+  padding: 3px 12px;
+  font-size: 0.85em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.coll-occasion-clear:hover { background: #c59d5f; color: #fff; }
+
+/* ══════════════════════════════
    RESPONSIVE
 ══════════════════════════════ */
 @media (max-width: 900px) {

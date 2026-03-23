@@ -218,7 +218,7 @@ function Home() {
         </div>
         <div className="occasions-grid">
           {OCCASIONS.map((occ, i) => (
-            <Link key={i} to="/collections" className="occasion-card">
+            <Link key={i} to={`/collections?occasion=${encodeURIComponent(occ.label)}`} className="occasion-card">
               <img src={occ.img} alt={occ.label} />
               <div className="occasion-overlay">
                 <i className={occ.icon}></i>

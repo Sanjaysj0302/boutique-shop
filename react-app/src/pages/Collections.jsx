@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import './Collections.css';
 
 const WHATSAPP_NUMBER = 918870178081
@@ -16,17 +17,17 @@ const CATEGORY_META = {
 const CATEGORIES = Object.keys(CATEGORY_META);
 
 const PRODUCTS = [
-  { id: 1,  src: '/images/tops/Media (1).jpeg',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',   isNew: true },
-  { id: 2,  src: '/images/tops/Media (2).jpeg',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops' },
-  { id: 3,  src: '/images/tops/Media (3).jpeg',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops' },
-  { id: 4,  src: '/images/tops/Media (4).jpeg',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',   featured: true },
-  { id: 5,  src: '/images/tops/Media (6).jpeg',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops' },
-  { id: 6,  src: '/images/tops/Media (7).jpeg',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops' },
-  { id: 7,  src: '/images/blouse/sharedimage (2).jpeg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', isNew: true },
-  { id: 8,  src: '/images/blouse/sharedimage (3).jpeg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse' },
-  { id: 9,  src: '/images/blouse/sharedimage (4).jpeg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', featured: true },
-  { id: 10, src: '/images/blouse/sharedimage (5).jpeg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse' },
-  { id: 11, src: '/images/blouse/sharedimage (6).jpeg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse' },
+  { id: 1,  src: '/images/tops/Media (1).jpeg',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',   isNew: true,    occasions: ['Casual', 'Party'] },
+  { id: 2,  src: '/images/tops/Media (2).jpeg',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',                   occasions: ['Casual'] },
+  { id: 3,  src: '/images/tops/Media (3).jpeg',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',                   occasions: ['Casual', 'Festival'] },
+  { id: 4,  src: '/images/tops/Media (4).jpeg',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',   featured: true, occasions: ['Party', 'Festival'] },
+  { id: 5,  src: '/images/tops/Media (6).jpeg',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',                   occasions: ['Casual'] },
+  { id: 6,  src: '/images/tops/Media (7).jpeg',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',                   occasions: ['Casual', 'Party'] },
+  { id: 7,  src: '/images/blouse/sharedimage (2).jpeg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', isNew: true,    occasions: ['Wedding', 'Festival'] },
+  { id: 8,  src: '/images/blouse/sharedimage (3).jpeg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding'] },
+  { id: 9,  src: '/images/blouse/sharedimage (4).jpeg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', featured: true, occasions: ['Wedding', 'Party'] },
+  { id: 10, src: '/images/blouse/sharedimage (5).jpeg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Festival', 'Party'] },
+  { id: 11, src: '/images/blouse/sharedimage (6).jpeg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
 ];
 
 const SIZE_GUIDE = [
@@ -39,16 +40,29 @@ const SIZE_GUIDE = [
 ];
 
 function Collections() {
-  const [activeFilter, setActiveFilter] = useState('all');
-  const [search, setSearch]             = useState('');
-  const [modalImage, setModalImage]     = useState(null);
+  const [searchParams, setSearchParams]   = useSearchParams();
+  const [activeFilter, setActiveFilter]   = useState('all');
+  const [activeOccasion, setActiveOccasion] = useState(() => searchParams.get('occasion') || '');
+  const [search, setSearch]               = useState('');
+  const [modalImage, setModalImage]       = useState(null);
   const [showSizeGuide, setShowSizeGuide] = useState(false);
 
+  useEffect(() => {
+    const occ = searchParams.get('occasion') || '';
+    setActiveOccasion(occ);
+  }, [searchParams]);
+
+  const clearOccasion = () => {
+    setActiveOccasion('');
+    setSearchParams({});
+  };
+
   const filtered = PRODUCTS.filter(p => {
-    const matchCat    = activeFilter === 'all' || p.category === activeFilter;
-    const matchSearch = p.title.toLowerCase().includes(search.toLowerCase()) ||
-                        p.category.toLowerCase().includes(search.toLowerCase());
-    return matchCat && matchSearch;
+    const matchCat      = activeFilter === 'all' || p.category === activeFilter;
+    const matchOccasion = !activeOccasion || (p.occasions && p.occasions.includes(activeOccasion));
+    const matchSearch   = p.title.toLowerCase().includes(search.toLowerCase()) ||
+                          p.category.toLowerCase().includes(search.toLowerCase());
+    return matchCat && matchOccasion && matchSearch;
   });
 
   const orderOnWhatsApp = (product) => {
@@ -89,6 +103,17 @@ function Collections() {
           </button>
         </div>
       </div>
+
+      {/* Occasion banner */}
+      {activeOccasion && (
+        <div className="coll-occasion-banner">
+          <i className="fas fa-filter"></i>
+          Showing: <strong>{activeOccasion}</strong> occasion
+          <button className="coll-occasion-clear" onClick={clearOccasion}>
+            <i className="fas fa-times"></i> Clear
+          </button>
+        </div>
+      )}
 
       {/* Filters */}
       <div className="coll-filters">
