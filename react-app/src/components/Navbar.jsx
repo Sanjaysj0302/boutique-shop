@@ -39,7 +39,17 @@ function Navbar() {
       <div className={`mobile-menu${menuOpen ? ' open' : ''}`}>
         <div className="mobile-menu-brand">
           <img src="/images/title.jpeg" alt="Nila Instyle" />
-          <span>Nila Instyle</span>
+          <div className="mobile-brand-info">
+            <span>Nila Instyle</span>
+            <div className="mobile-social">
+              <a href="https://www.instagram.com/nila.instyle/" target="_blank" rel="noreferrer">
+                <i className="fab fa-instagram"></i>
+              </a>
+              <a href="https://www.pinterest.com/" target="_blank" rel="noreferrer">
+                <i className="fab fa-pinterest"></i>
+              </a>
+            </div>
+          </div>
         </div>
 
         <nav className="mobile-nav">
@@ -62,14 +72,6 @@ function Navbar() {
 
         <div className="mobile-menu-footer">
           <p className="mobile-menu-tagline">Custom stitching · Made just for you</p>
-          <div className="mobile-social">
-            <a href="https://www.instagram.com/nila.instyle/" target="_blank" rel="noreferrer">
-              <i className="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.pinterest.com/" target="_blank" rel="noreferrer">
-              <i className="fab fa-pinterest"></i>
-            </a>
-          </div>
         </div>
       </div>
     </header>
