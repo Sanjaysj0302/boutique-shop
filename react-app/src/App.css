@@ -7,6 +7,23 @@
 
 html, body {
   overflow-x: hidden;
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content {
+  flex: 1;
 }
 
 /* Scale down entire UI on mobile */

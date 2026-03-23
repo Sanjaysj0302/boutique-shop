@@ -40,7 +40,7 @@ function SwipeNavigator({ children }) {
   };
 
   return (
-    <div onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+    <div className="app-body" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
       {children}
     </div>
   );
