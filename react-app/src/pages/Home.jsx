@@ -111,6 +111,7 @@ function Home() {
   const [newsletterDone, setNewsletterDone]       = useState(false);
   const slideRef = useRef(null);
   const statsRef = useRef(null);
+  const featuredScrollRef = useRef(null);
 
   useEffect(() => {
     const preload = (url) => { new Image().src = url; };
@@ -129,6 +130,28 @@ function Home() {
   useEffect(() => {
     const t = setInterval(() => setTestimonialIndex(prev => (prev + 1) % TESTIMONIALS.length), 4000);
     return () => clearInterval(t);
+  }, []);
+
+  useEffect(() => {
+    const el = featuredScrollRef.current;
+    if (!el) return;
+    let startX = 0;
+    let startY = 0;
+    const onTouchStart = (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    };
+    const onTouchMove = (e) => {
+      const dx = Math.abs(e.touches[0].clientX - startX);
+      const dy = Math.abs(e.touches[0].clientY - startY);
+      if (dx > dy) e.preventDefault();
+    };
+    el.addEventListener('touchstart', onTouchStart, { passive: true });
+    el.addEventListener('touchmove', onTouchMove, { passive: false });
+    return () => {
+      el.removeEventListener('touchstart', onTouchStart);
+      el.removeEventListener('touchmove', onTouchMove);
+    };
   }, []);
 
   useEffect(() => {
@@ -257,7 +280,7 @@ function Home() {
           <h2>Featured Picks</h2>
           <p>Our most loved designs — handpicked for you</p>
         </div>
-        <div className="featured-scroll">
+        <div className="featured-scroll" ref={featuredScrollRef}>
           {FEATURED.map(p => (
             <div key={p.id} className="featured-card">
               {p.isNew    && <span className="fp-badge new">New</span>}
