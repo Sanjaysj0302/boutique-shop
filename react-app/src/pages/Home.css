@@ -363,6 +363,8 @@
   scrollbar-width: thin;
   scrollbar-color: #c59d5f #eee;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x;
 }
 
 .featured-scroll::-webkit-scrollbar { height: 5px; }
