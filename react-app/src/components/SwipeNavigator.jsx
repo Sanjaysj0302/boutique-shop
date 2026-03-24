@@ -18,6 +18,12 @@ function SwipeNavigator({ children }) {
   const onTouchEnd = (e) => {
     if (startX.current === null) return;
 
+    // Don't navigate if swipe started inside a horizontally scrollable element
+    if (e.target.closest('[data-no-swipe]')) {
+      startX.current = null;
+      return;
+    }
+
     const deltaX = startX.current - e.changedTouches[0].clientX;
     const deltaY = Math.abs(startY.current - e.changedTouches[0].clientY);
 
