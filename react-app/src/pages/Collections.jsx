@@ -9,7 +9,7 @@ const CATEGORY_META = {
   tops:        { label: 'Tops',        icon: 'fas fa-tshirt' },
   blouse:      { label: 'Blouse',      icon: 'fas fa-female' },
   salvar:      { label: 'Salwar',      icon: 'fas fa-spa' },
-  frog:     { label: 'Frog',     icon: 'fas fa-star' },
+  frocks:     { label: 'Frocks',     icon: 'fas fa-star' },
   kids:        { label: 'Kids',        icon: 'fas fa-child' },
   accessories: { label: 'Accessories', icon: 'fas fa-gem' },
 };
