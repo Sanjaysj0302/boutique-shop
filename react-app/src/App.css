@@ -81,7 +81,6 @@ header {
   background: #fff;
   border: 2px solid #c59d5f;
   flex-shrink: 0;
-  padding: 4px;
 }
 
 .logo-text {
@@ -361,7 +360,6 @@ footer {
   object-fit: contain;
   background: #fff;
   border: 2px solid #c59d5f;
-  padding: 4px;
   flex-shrink: 0;
 }
 
