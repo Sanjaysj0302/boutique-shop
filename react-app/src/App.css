@@ -74,8 +74,8 @@ header {
 }
 
 .logo img {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   object-fit: contain;
   background: #fff;
@@ -92,14 +92,14 @@ header {
 
 .logo-name {
   font-family: 'Playfair Display', serif;
-  font-size: 1em;
+  font-size: 1.5em;
   font-weight: 700;
   color: #222;
   white-space: nowrap;
 }
 
 .logo-tagline {
-  font-size: 0.6em;
+  font-size: 1em;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -222,8 +222,10 @@ footer {
 
 .footer-inner {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 10px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -231,13 +233,11 @@ footer {
 .footer-copy {
   font-size: 0.82em;
   color: #fff;
-  flex: 1;
 }
 
 .social-links {
   display: flex;
   gap: 16px;
-  flex: 1;
   justify-content: center;
 }
 
@@ -500,9 +500,9 @@ footer {
   body { padding-top: 90px; }
   .mobile-menu { top: 90px; }
   header { padding: 8px 14px; }
-  .logo img { width: 44px; height: 44px; }
-  .logo-name { font-size: 0.82em; }
-  .logo-tagline { font-size: 0.55em; letter-spacing: 1.5px; }
+  .logo img { width: 54px; height: 54px; }
+  .logo-name { font-size: 1.3em; }
+  .logo-tagline { font-size: 0.82em; letter-spacing: 1.8px; }
   .marquee-item { font-size: 0.7em; }
   .page-title { padding: 40px 15px; }
   .page-title h1 { font-size: 1.8em; }
