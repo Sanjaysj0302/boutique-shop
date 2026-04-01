@@ -228,7 +228,7 @@
   letter-spacing: 1px;
   z-index: 3;
 }
-.coll-badge.new       { background: #1b6e2e; color: white; }
+.coll-badge.new       { background: #0066cc; color: white; }
 .coll-badge.featured  { background: linear-gradient(135deg, #c59d5f, #b38b50); color: white; }
 .coll-badge.variations { background: #0066cc; color: white; top: 50px; }
 

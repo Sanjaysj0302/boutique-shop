@@ -276,13 +276,49 @@ function Collections() {
   useEffect(() => {
     if (modalGroupIndex === null) return;
     const currentGroup = grouped[modalGroupIndex];
+
+    // Prevent body scroll when lightbox is open
+    document.body.style.overflow = 'hidden';
+
+    let touchStartX = 0;
     const handleKey = (e) => {
       if (e.key === 'ArrowRight') setModalVariationIndex(i => Math.min(i + 1, currentGroup.variations.length - 1));
       if (e.key === 'ArrowLeft')  setModalVariationIndex(i => Math.max(i - 1, 0));
       if (e.key === 'Escape')     setModalGroupIndex(null);
     };
+
+    const handleTouchStart = (e) => {
+      touchStartX = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = (e) => {
+      if (!touchStartX) return;
+      const touchEndX = e.changedTouches[0].clientX;
+      const diff = touchStartX - touchEndX;
+      const threshold = 50;
+
+      if (Math.abs(diff) > threshold) {
+        if (diff > 0) {
+          // Swiped left - go to next
+          setModalVariationIndex(i => Math.min(i + 1, currentGroup.variations.length - 1));
+        } else {
+          // Swiped right - go to previous
+          setModalVariationIndex(i => Math.max(i - 1, 0));
+        }
+      }
+      touchStartX = 0;
+    };
+
     window.addEventListener('keydown', handleKey);
-    return () => window.removeEventListener('keydown', handleKey);
+    window.addEventListener('touchstart', handleTouchStart);
+    window.addEventListener('touchend', handleTouchEnd);
+
+    return () => {
+      document.body.style.overflow = 'unset';
+      window.removeEventListener('keydown', handleKey);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchend', handleTouchEnd);
+    };
   }, [modalGroupIndex, grouped]);
 
   const orderOnWhatsApp = (product) => {
@@ -384,7 +420,6 @@ function Collections() {
                       onClick={() => { setModalGroupIndex(groupIdx); setModalVariationIndex(0); }}
                       title="Quick View"
                     >
-                      <i className="fas fa-expand-alt"></i>
                     </button>
                     <button
                       className="coll-overlay-btn wa"
