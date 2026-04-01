@@ -21,44 +21,44 @@ const CATEGORIES = Object.keys(CATEGORY_META);
 // /images/blouse
 // /images/tops/
 const PRODUCTS = [
-  { id: 1,  src: '/images/Tops/tops1.1.JPG',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',   isNew: true,    occasions: ['Casual', 'Party'] },
+  { id: 1,  src: '/images/Tops/tops1.1.JPG',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',   isNew: true,    occasions: ['Casual'] },
   { id: 2,  src: '/images/Tops/tops1.2.JPG',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',                   occasions: ['Casual'] },
-  { id: 3,  src: '/images/Tops/tops1.3.jpg',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',                   occasions: ['Casual', 'Festival'] },
-  { id: 4,  src: '/images/Tops/tops2.JPEG',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',   featured: true, occasions: ['Party', 'Festival'] },
-  { id: 149, src: '/images/Tops/tops3.JPEG',            alt: 'Tops', title: 'Designer Blouse',   category: 'tops',                 occasions: ['Wedding', 'Festival'] },
+  { id: 3,  src: '/images/Tops/tops1.3.jpg',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',                   occasions: ['Casual'] },
+  { id: 4,  src: '/images/Tops/tops2.JPEG',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',   featured: true, occasions: ['Casual'] },
+  { id: 149, src: '/images/Tops/tops3.JPEG',            alt: 'Tops', title: 'Designer Blouse',   category: 'tops',                 occasions: ['Casual'] },
   { id: 20,  src: '/images/Tops/tops11.jpeg',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',                   occasions: ['Casual'] },
   
 
 
 
-  { id: 6,  src: '/images/SkirtTop/skirt_top1.1.jpeg',           alt: 'Skirt & Top',   title: 'Stylish Top',       category: 'skirttop',                   occasions: ['Casual', 'Party'] },
-  { id: 7,  src: '/images/SkirtTop/skirt_top1.2.jpeg',           alt: 'Skirt & Top',   title: 'Stylish Top',       category: 'skirttop',   isNew: true,    occasions: ['Casual', 'Party'] },
-  { id: 15,  src: '/images/SkirtTop/skirt_top2.1.jpg',           alt: 'Skirt & Top',   title: 'Stylish Top',       category: 'skirttop',                   occasions: ['Casual', 'Festival'] },
-  { id: 16,  src: '/images/SkirtTop/skirt_top2.2.jpg',           alt: 'Skirt & Top',   title: 'Stylish Top',       category: 'skirttop',   featured: true, occasions: ['Party', 'Festival'] },
-  { id: 22,  src: '/images/SkirtTop/skirt_top3.jpeg',           alt: 'Skirt & Top',   title: 'Stylish Top',       category: 'skirttop',   featured: true, occasions: ['Party', 'Festival'] },
+  { id: 6,  src: '/images/SkirtTop/skirt_top1.1.jpeg',           alt: 'Skirt & Top',   title: 'Stylish Top',       category: 'skirttop',                   occasions: ['Festival'] },
+  { id: 7,  src: '/images/SkirtTop/skirt_top1.2.jpeg',           alt: 'Skirt & Top',   title: 'Stylish Top',       category: 'skirttop',   isNew: true,    occasions: ['Festival'] },
+  { id: 15,  src: '/images/SkirtTop/skirt_top2.1.jpg',           alt: 'Skirt & Top',   title: 'Stylish Top',       category: 'skirttop',                   occasions: ['Festival'] },
+  { id: 16,  src: '/images/SkirtTop/skirt_top2.2.jpg',           alt: 'Skirt & Top',   title: 'Stylish Top',       category: 'skirttop',   featured: true, occasions: ['Festival'] },
+  { id: 22,  src: '/images/SkirtTop/skirt_top3.jpeg',           alt: 'Skirt & Top',   title: 'Stylish Top',       category: 'skirttop',   featured: true, occasions: ['Party'] },
 
 
-  { id: 12,  src: '/images/Lehenga/lehenga1.1.jpg',           alt: 'Lehenga',   title: 'Stylish Top',       category: 'lehenga',                   occasions: ['Casual', 'Party'] },
-  { id: 13,  src: '/images/Lehenga/lehenga1.2.JPEG',           alt: 'Lehenga',   title: 'Stylish Top',       category: 'lehenga',   isNew: true,    occasions: ['Casual', 'Party'] },
-  { id: 14,  src: '/images/Lehenga/lehenga1.3.jpg',           alt: 'Lehenga',   title: 'Stylish Top',       category: 'lehenga',                   occasions: ['Casual'] },
-  { id: 17,  src: '/images/Lehenga/lehenga2.1.jpg',           alt: 'Lehenga',   title: 'Stylish Top',       category: 'lehenga',                   occasions: ['Casual'] },
-  { id: 18,  src: '/images/Lehenga/lehenga2.2.jpg',           alt: 'Lehenga',   title: 'Stylish Top',       category: 'lehenga',                   occasions: ['Casual', 'Party'] },
-  { id: 19,  src: '/images/Lehenga/lehenga2.3.JPG',           alt: 'Lehenga',   title: 'Stylish Top',       category: 'lehenga',   isNew: true,    occasions: ['Casual', 'Party'] },
+  { id: 12,  src: '/images/Lehenga/lehenga1.1.jpg',           alt: 'Lehenga',   title: 'Stylish Top',       category: 'lehenga',                   occasions: ['Festival'] },
+  { id: 13,  src: '/images/Lehenga/lehenga1.2.JPEG',           alt: 'Lehenga',   title: 'Stylish Top',       category: 'lehenga',   isNew: true,    occasions: ['Festival'] },
+  { id: 14,  src: '/images/Lehenga/lehenga1.3.jpg',           alt: 'Lehenga',   title: 'Stylish Top',       category: 'lehenga',                   occasions: ['Festival'] },
+  { id: 17,  src: '/images/Lehenga/lehenga2.1.jpg',           alt: 'Lehenga',   title: 'Stylish Top',       category: 'lehenga',                   occasions: ['Wedding'] },
+  { id: 18,  src: '/images/Lehenga/lehenga2.2.jpg',           alt: 'Lehenga',   title: 'Stylish Top',       category: 'lehenga',                   occasions: ['Wedding'] },
+  { id: 19,  src: '/images/Lehenga/lehenga2.3.JPG',           alt: 'Lehenga',   title: 'Stylish Top',       category: 'lehenga',   isNew: true,    occasions: ['Wedding'] },
 
 
 
   
   
-  { id: 26,  src: '/images/Blouse/blouse1.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', isNew: true,    occasions: ['Wedding', 'Festival'] },
-  { id: 27,  src: '/images/Blouse/blouse1.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding'] },
-  { id: 28,  src: '/images/Blouse/blouse2.1.JPG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', featured: true, occasions: ['Wedding', 'Party'] },
-  { id: 29, src: '/images/Blouse/blouse2.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Festival', 'Party'] },
-  { id: 30, src: '/images/Blouse/blouse3.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 26,  src: '/images/Blouse/blouse1.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', isNew: true,    occasions: ['Festival'] },
+  { id: 27,  src: '/images/Blouse/blouse1.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Festival'] },
+  { id: 28,  src: '/images/Blouse/blouse2.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', featured: true, occasions: ['Wedding'] },
+  { id: 29, src: '/images/Blouse/blouse2.2.JPG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding'] },
+  { id: 30, src: '/images/Blouse/blouse3.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding'] },
 
-  { id: 31,  src: '/images/Blouse/blouse3.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', isNew: true,    occasions: ['Wedding', 'Festival'] },
+  { id: 31,  src: '/images/Blouse/blouse3.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', isNew: true,    occasions: ['Wedding'] },
   { id: 32,  src: '/images/Blouse/blouse4.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding'] },
-  { id: 33,  src: '/images/Blouse/blouse4.2.JPEG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', featured: true, occasions: ['Wedding', 'Party'] },
-  { id: 34, src: '/images/Blouse/blouse4.3.JPEG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Festival', 'Party'] },
+  { id: 33,  src: '/images/Blouse/blouse4.2.JPEG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', featured: true, occasions: ['Wedding'] },
+  { id: 34, src: '/images/Blouse/blouse4.3.JPEG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding'] },
   { id: 35, src: '/images/Blouse/blouse5.1.JPEG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
 
   { id: 36,  src: '/images/Blouse/blouse5.2.JPEG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', isNew: true,    occasions: ['Wedding', 'Festival'] },
@@ -114,7 +114,6 @@ const PRODUCTS = [
   { id: 80, src: '/images/Blouse/blouse29.3.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
   { id: 81, src: '/images/Blouse/blouse30.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
   { id: 82, src: '/images/Blouse/blouse30.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
-  { id: 83, src: '/images/Blouse/blouse31.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
   { id: 84, src: '/images/Blouse/blouse32.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
   { id: 85, src: '/images/Blouse/blouse33.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
   { id: 86, src: '/images/Blouse/blouse33.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
@@ -141,8 +140,9 @@ const PRODUCTS = [
   { id: 104, src: '/images/Salwars/salwar3.JPEG',   alt: 'Salwar', title: 'Designer Blouse',   category: 'salwar',                 occasions: ['Wedding', 'Festival'] },
   { id: 105, src: '/images/Salwars/salwar4.jpg',   alt: 'Salwar', title: 'Designer Blouse',   category: 'salwar',                 occasions: ['Wedding', 'Festival'] },
   { id: 107, src: '/images/Salwars/salwar6.JPEG',   alt: 'Salwar', title: 'Designer Blouse',   category: 'salwar',                 occasions: ['Wedding', 'Festival'] },
-  { id: 5,  src: '/images/Salwars/salwar7.jpg',           alt: 'Salwar',   title: 'Stylish Top',       category: 'salwar',                   occasions: ['Casual'] },
-  
+  { id: 5,  src: '/images/Salwars/salwar7.1.jpg',           alt: 'Salwar',   title: 'Stylish Top',       category: 'Salwar',                   occasions: ['Casual'] },
+  { id: 83, src: '/images/Salwars/salwar7.2.jpg',   alt: 'Salwar', title: 'Designer Blouse',   category: 'Salwar',                 occasions: ['Wedding', 'Festival'] },
+
   
   
   { id: 108, src: '/images/Frocks/frocks1.jpg',   alt: 'Frocks', title: 'Designer Blouse',   category: 'frocks',                 occasions: ['Wedding', 'Festival'] },
@@ -200,7 +200,7 @@ const PRODUCTS = [
 
   { id: 23,  src: '/images/Kids/kids29.jpeg',           alt: 'Kids',   title: 'Stylish Top',       category: 'kids',                   occasions: ['Casual'] },
   { id: 24,  src: '/images/Kids/kids30.jpeg',           alt: 'Kids',   title: 'Stylish Top',       category: 'kids',                   occasions: ['Casual', 'Party'] },
-  { id: 49, src: '/images/Kids/kids31.JPG',   alt: 'Kids', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Festival', 'Party'] },
+  { id: 49, src: '/images/Kids/kids31.JPG',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Festival', 'Party'] },
   
 
   { id: 8,  src: '/images/Kids/kids32.1.JPEG',           alt: 'Kids',   title: 'Stylish Top',       category: 'kids',                   occasions: ['Casual'] },
@@ -372,8 +372,8 @@ function Collections() {
             const product = group.baseProduct;
             return (
               <div key={group.id} className="coll-card">
-                {product.isNew    && <span className="coll-badge new">New</span>}
-                {product.featured && <span className="coll-badge featured"><i className="fas fa-star"></i> Featured</span>}
+                {/* {product.isNew    && <span className="coll-badge new">New</span>}
+                {product.featured && <span className="coll-badge featured"><i className="fas fa-star"></i> Featured</span>} */}
                 {group.variations.length > 1 && <span className="coll-badge variations">{group.variations.length} views</span>}
 
                 <div className="coll-img-wrap">
