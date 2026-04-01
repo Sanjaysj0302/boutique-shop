@@ -199,7 +199,6 @@ const PRODUCTS = [
 
 
   { id: 23,  src: '/images/Kids/kids29.jpeg',           alt: 'Kids',   title: 'Stylish Top',       category: 'kids',                   occasions: ['Casual'] },
-  { id: 24,  src: '/images/Kids/kids30.jpeg',           alt: 'Kids',   title: 'Stylish Top',       category: 'kids',                   occasions: ['Casual', 'Party'] },
   { id: 49, src: '/images/Kids/kids31.JPG',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Festival', 'Party'] },
   
 
