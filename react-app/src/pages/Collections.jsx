@@ -51,8 +51,8 @@ const PRODUCTS = [
   
   { id: 26,  src: '/images/Blouse/blouse1.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', isNew: true,    occasions: ['Wedding', 'Festival'] },
   { id: 27,  src: '/images/Blouse/blouse1.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding'] },
-  { id: 28,  src: '/images/Blouse/blouse2.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', featured: true, occasions: ['Wedding', 'Party'] },
-  { id: 29, src: '/images/Blouse/blouse2.2.JPG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Festival', 'Party'] },
+  { id: 28,  src: '/images/Blouse/blouse2.1.JPG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', featured: true, occasions: ['Wedding', 'Party'] },
+  { id: 29, src: '/images/Blouse/blouse2.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Festival', 'Party'] },
   { id: 30, src: '/images/Blouse/blouse3.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
 
   { id: 31,  src: '/images/Blouse/blouse3.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', isNew: true,    occasions: ['Wedding', 'Festival'] },
@@ -126,7 +126,7 @@ const PRODUCTS = [
   { id: 93, src: '/images/Blouse/blouse38.3.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
   { id: 101, src: '/images/Blouse/blouse38.4.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
   { id: 94, src: '/images/Blouse/blouse39.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
-  { id: 95, src: '/images/Blouse/blouse40.1.jpeg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 95, src: '/images/Blouse/blouse40.1.JPEG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
   { id: 96, src: '/images/Blouse/blouse40.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
   { id: 97, src: '/images/Blouse/blouse40.3.jpeg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
   { id: 98, src: '/images/Blouse/blouse41.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
