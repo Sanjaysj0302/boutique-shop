@@ -351,8 +351,12 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  overflow-y: auto;
+  overflow: hidden;
   touch-action: none;
+  overscroll-behavior: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .coll-lightbox img {
