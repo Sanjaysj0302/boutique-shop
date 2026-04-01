@@ -397,6 +397,7 @@
 }
 .fp-badge.new { background: #2e7d32; color: white; }
 .fp-badge.hot { background: #c59d5f; color: white; }
+.fp-badge.cool { background: #c70909; color: white; }
 
 .featured-img-wrap {
   position: relative;

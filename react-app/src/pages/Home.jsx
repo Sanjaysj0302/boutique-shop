@@ -41,12 +41,12 @@ const STEPS = [
 ];
 
 const FEATURED = [
-  { id: 1, src: '/images/tops/Media (1).jpeg',         title: 'Stylish Top',     category: 'Tops',   isNew: true },
-  { id: 2, src: '/images/blouse/sharedimage (2).jpeg', title: 'Designer Blouse', category: 'Blouse', isNew: true },
-  { id: 3, src: '/images/tops/Media (4).jpeg',         title: 'Trendy Top',      category: 'Tops',   featured: true },
-  { id: 4, src: '/images/blouse/sharedimage (4).jpeg', title: 'Party Blouse',    category: 'Blouse', featured: true },
-  { id: 5, src: '/images/tops/Media (6).jpeg',         title: 'Casual Top',      category: 'Tops' },
-  { id: 6, src: '/images/blouse/sharedimage (5).jpeg', title: 'Ethnic Blouse',   category: 'Blouse' },
+  { id: 1, src: '/images/Blouse/blouse3.2.jpg?auto=compress&cs=tinysrgb&w=800', title: 'Wedding Blouse', category: 'Blouse', isNew: true },
+  { id: 2, src: '/images/Lehenga/lehenga2.1.jpg?auto=compress&cs=tinysrgb&w=800',         title: 'Stylish Party Wear',     category: 'Lehenga',   istrend: true },
+  { id: 3, src: '/images/Blouse/blouse2.1.JPG?auto=compress&cs=tinysrgb&w=800',         title: 'Designer Blouse',      category: 'Blouse',   featured: true },
+  { id: 4, src: '/images/Kids/kids13.JPEG?auto=compress&cs=tinysrgb&w=800', title: 'Kids Party Wear',    category: 'Kids', featured: true },
+  { id: 5, src: '/images/SkirtTop/skirt_top1.1.jpeg?auto=compress&cs=tinysrgb&w=800',         title: 'Mom Baby Sets',      category: 'Skit & Top' },
+  { id: 6, src: '/images/Kids/kids21.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Kids Party Wear',   category: 'Kids',  istrend: true },
 ];
 
 const TESTIMONIALS = [
@@ -262,6 +262,7 @@ function Home() {
             <div key={p.id} className="featured-card">
               {p.isNew    && <span className="fp-badge new">New</span>}
               {p.featured && <span className="fp-badge hot">Featured</span>}
+              {p.istrend    && <span className="fp-badge cool">Trending ➶</span>}
               <div className="featured-img-wrap">
                 <img src={p.src} alt={p.title} />
                 <div className="featured-hover">

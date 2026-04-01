@@ -7,27 +7,209 @@ const WHATSAPP_NUMBER = 918870178081
 const CATEGORY_META = {
   all:         { label: 'All',         icon: 'fas fa-th' },
   tops:        { label: 'Tops',        icon: 'fas fa-tshirt' },
+  skirttop:        { label: 'Skirt & Top',        icon: 'fas fa-tshirt' },
+  lehenga:        { label: 'Lehenga',        icon: 'fas fa-tshirt' },
   blouse:      { label: 'Blouse',      icon: 'fas fa-female' },
-  salvar:      { label: 'Salwar',      icon: 'fas fa-spa' },
+  salwar:      { label: 'Salwar',      icon: 'fas fa-spa' },
   frocks:     { label: 'Frocks',     icon: 'fas fa-star' },
   kids:        { label: 'Kids',        icon: 'fas fa-child' },
+  // nightsuit: { label: 'Nightsuit', icon: 'fas fa-moon' },
   accessories: { label: 'Accessories', icon: 'fas fa-gem' },
 };
 
 const CATEGORIES = Object.keys(CATEGORY_META);
-
+// /images/blouse
+// /images/tops/
 const PRODUCTS = [
-  { id: 1,  src: '/images/tops/Media (1).jpeg',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',   isNew: true,    occasions: ['Casual', 'Party'] },
-  { id: 2,  src: '/images/tops/Media (2).jpeg',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',                   occasions: ['Casual'] },
-  { id: 3,  src: '/images/tops/Media (3).jpeg',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',                   occasions: ['Casual', 'Festival'] },
-  { id: 4,  src: '/images/tops/Media (4).jpeg',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',   featured: true, occasions: ['Party', 'Festival'] },
-  { id: 5,  src: '/images/tops/Media (6).jpeg',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',                   occasions: ['Casual'] },
-  { id: 6,  src: '/images/tops/Media (7).jpeg',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',                   occasions: ['Casual', 'Party'] },
-  { id: 7,  src: '/images/blouse/sharedimage (2).jpeg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', isNew: true,    occasions: ['Wedding', 'Festival'] },
-  { id: 8,  src: '/images/blouse/sharedimage (3).jpeg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding'] },
-  { id: 9,  src: '/images/blouse/sharedimage (4).jpeg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', featured: true, occasions: ['Wedding', 'Party'] },
-  { id: 10, src: '/images/blouse/sharedimage (5).jpeg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Festival', 'Party'] },
-  { id: 11, src: '/images/blouse/sharedimage (6).jpeg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 1,  src: '/images/Tops/tops1.1.JPG',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',   isNew: true,    occasions: ['Casual', 'Party'] },
+  { id: 2,  src: '/images/Tops/tops1.2.JPG',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',                   occasions: ['Casual'] },
+  { id: 3,  src: '/images/Tops/tops1.3.jpg',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',                   occasions: ['Casual', 'Festival'] },
+  { id: 4,  src: '/images/Tops/tops2.JPEG',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',   featured: true, occasions: ['Party', 'Festival'] },
+  { id: 149, src: '/images/Tops/tops3.JPEG',            alt: 'Tops', title: 'Designer Blouse',   category: 'tops',                 occasions: ['Wedding', 'Festival'] },
+  { id: 20,  src: '/images/Tops/tops11.jpeg',           alt: 'Tops',   title: 'Stylish Top',       category: 'tops',                   occasions: ['Casual'] },
+  
+
+
+
+  { id: 6,  src: '/images/SkirtTop/skirt_top1.1.jpeg',           alt: 'Skirt & Top',   title: 'Stylish Top',       category: 'skirttop',                   occasions: ['Casual', 'Party'] },
+  { id: 7,  src: '/images/SkirtTop/skirt_top1.2.jpeg',           alt: 'Skirt & Top',   title: 'Stylish Top',       category: 'skirttop',   isNew: true,    occasions: ['Casual', 'Party'] },
+  { id: 15,  src: '/images/SkirtTop/skirt_top2.1.jpg',           alt: 'Skirt & Top',   title: 'Stylish Top',       category: 'skirttop',                   occasions: ['Casual', 'Festival'] },
+  { id: 16,  src: '/images/SkirtTop/skirt_top2.2.jpg',           alt: 'Skirt & Top',   title: 'Stylish Top',       category: 'skirttop',   featured: true, occasions: ['Party', 'Festival'] },
+  { id: 22,  src: '/images/SkirtTop/skirt_top3.jpeg',           alt: 'Skirt & Top',   title: 'Stylish Top',       category: 'skirttop',   featured: true, occasions: ['Party', 'Festival'] },
+
+
+  { id: 12,  src: '/images/Lehenga/lehenga1.1.jpg',           alt: 'Lehenga',   title: 'Stylish Top',       category: 'lehenga',                   occasions: ['Casual', 'Party'] },
+  { id: 13,  src: '/images/Lehenga/lehenga1.2.JPEG',           alt: 'Lehenga',   title: 'Stylish Top',       category: 'lehenga',   isNew: true,    occasions: ['Casual', 'Party'] },
+  { id: 14,  src: '/images/Lehenga/lehenga1.3.jpg',           alt: 'Lehenga',   title: 'Stylish Top',       category: 'lehenga',                   occasions: ['Casual'] },
+  { id: 17,  src: '/images/Lehenga/lehenga2.1.jpg',           alt: 'Lehenga',   title: 'Stylish Top',       category: 'lehenga',                   occasions: ['Casual'] },
+  { id: 18,  src: '/images/Lehenga/lehenga2.2.jpg',           alt: 'Lehenga',   title: 'Stylish Top',       category: 'lehenga',                   occasions: ['Casual', 'Party'] },
+  { id: 19,  src: '/images/Lehenga/lehenga2.3.JPG',           alt: 'Lehenga',   title: 'Stylish Top',       category: 'lehenga',   isNew: true,    occasions: ['Casual', 'Party'] },
+
+
+
+  
+  
+  { id: 26,  src: '/images/Blouse/blouse1.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', isNew: true,    occasions: ['Wedding', 'Festival'] },
+  { id: 27,  src: '/images/Blouse/blouse1.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding'] },
+  { id: 28,  src: '/images/Blouse/blouse2.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', featured: true, occasions: ['Wedding', 'Party'] },
+  { id: 29, src: '/images/Blouse/blouse2.2.JPG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Festival', 'Party'] },
+  { id: 30, src: '/images/Blouse/blouse3.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+
+  { id: 31,  src: '/images/Blouse/blouse3.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', isNew: true,    occasions: ['Wedding', 'Festival'] },
+  { id: 32,  src: '/images/Blouse/blouse4.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding'] },
+  { id: 33,  src: '/images/Blouse/blouse4.2.JPEG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', featured: true, occasions: ['Wedding', 'Party'] },
+  { id: 34, src: '/images/Blouse/blouse4.3.JPEG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Festival', 'Party'] },
+  { id: 35, src: '/images/Blouse/blouse5.1.JPEG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+
+  { id: 36,  src: '/images/Blouse/blouse5.2.JPEG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', isNew: true,    occasions: ['Wedding', 'Festival'] },
+  { id: 37,  src: '/images/Blouse/blouse5.3.JPEG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding'] },
+  { id: 38,  src: '/images/Blouse/blouse6.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', featured: true, occasions: ['Wedding', 'Party'] },
+  { id: 39, src: '/images/Blouse/blouse6.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Festival', 'Party'] },
+  { id: 40, src: '/images/Blouse/blouse6.3.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+
+  { id: 41,  src: '/images/Blouse/blouse7.1.JPEG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', isNew: true,    occasions: ['Wedding', 'Festival'] },
+  { id: 42,  src: '/images/Blouse/blouse7.2.JPEG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding'] },
+  { id: 43,  src: '/images/Blouse/blouse8.JPEG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', featured: true, occasions: ['Wedding', 'Party'] },
+  { id: 44, src: '/images/Blouse/blouse9.1.JPEG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Festival', 'Party'] },
+  { id: 45, src: '/images/Blouse/blouse9.2.JPEG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 50, src: '/images/Blouse/blouse9.3.JPEG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+
+  { id: 46,  src: '/images/Blouse/blouse10.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', isNew: true,    occasions: ['Wedding', 'Festival'] },
+  { id: 47,  src: '/images/Blouse/blouse11.JPEG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding'] },
+  { id: 48,  src: '/images/Blouse/blouse12.JPEG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', featured: true, occasions: ['Wedding', 'Party'] },
+  
+  { id: 51,  src: '/images/Blouse/blouse15.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', isNew: true,    occasions: ['Wedding', 'Festival'] },
+  { id: 52,  src: '/images/Blouse/blouse15.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding'] },
+  { id: 53,  src: '/images/Blouse/blouse16.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', featured: true, occasions: ['Wedding', 'Party'] },
+  { id: 54, src: '/images/Blouse/blouse16.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Festival', 'Party'] },
+  { id: 55, src: '/images/Blouse/blouse16.3.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+
+  { id: 56,  src: '/images/Blouse/blouse17.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', isNew: true,    occasions: ['Wedding', 'Festival'] },
+  { id: 57,  src: '/images/Blouse/blouse17.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding'] },
+  { id: 58,  src: '/images/Blouse/blouse18.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', featured: true, occasions: ['Wedding', 'Party'] },
+  { id: 59, src: '/images/Blouse/blouse18.2.jpeg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Festival', 'Party'] },
+  { id: 60, src: '/images/Blouse/blouse19.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+
+  { id: 61,  src: '/images/Blouse/blouse19.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', isNew: true,    occasions: ['Wedding', 'Festival'] },
+  { id: 62,  src: '/images/Blouse/blouse20.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding'] },
+  { id: 63,  src: '/images/Blouse/blouse20.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', featured: true, occasions: ['Wedding', 'Party'] },
+  { id: 66, src: '/images/Blouse/blouse21.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 67, src: '/images/Blouse/blouse21.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 68, src: '/images/Blouse/blouse21.3.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 69, src: '/images/Blouse/blouse22.1.JPEG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 70, src: '/images/Blouse/blouse22.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 71, src: '/images/Blouse/blouse22.3.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 72, src: '/images/Blouse/blouse23.JPEG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 73, src: '/images/Blouse/blouse24.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 74, src: '/images/Blouse/blouse25.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  
+  { id: 77, src: '/images/Blouse/blouse28.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 78, src: '/images/Blouse/blouse29.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  
+  
+
+  { id: 79, src: '/images/Blouse/blouse29.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  
+  
+  { id: 80, src: '/images/Blouse/blouse29.3.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 81, src: '/images/Blouse/blouse30.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 82, src: '/images/Blouse/blouse30.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 83, src: '/images/Blouse/blouse31.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 84, src: '/images/Blouse/blouse32.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 85, src: '/images/Blouse/blouse33.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 86, src: '/images/Blouse/blouse33.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 88, src: '/images/Blouse/blouse35.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 89, src: '/images/Blouse/blouse36.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 90, src: '/images/Blouse/blouse37.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 91, src: '/images/Blouse/blouse38.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 92, src: '/images/Blouse/blouse38.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 93, src: '/images/Blouse/blouse38.3.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 101, src: '/images/Blouse/blouse38.4.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 94, src: '/images/Blouse/blouse39.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 95, src: '/images/Blouse/blouse40.1.jpeg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 96, src: '/images/Blouse/blouse40.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 97, src: '/images/Blouse/blouse40.3.jpeg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 98, src: '/images/Blouse/blouse41.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 99, src: '/images/Blouse/blouse42.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+  { id: 64, src: '/images/Blouse/blouse45.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Festival', 'Party'] },
+  { id: 65, src: '/images/Blouse/blouse45.2.JPEG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding', 'Festival'] },
+
+
+
+
+  { id: 103, src: '/images/Salwars/salwar2.JPEG',   alt: 'Salwar', title: 'Designer Blouse',   category: 'salwar',                 occasions: ['Wedding', 'Festival'] },
+  { id: 104, src: '/images/Salwars/salwar3.JPEG',   alt: 'Salwar', title: 'Designer Blouse',   category: 'salwar',                 occasions: ['Wedding', 'Festival'] },
+  { id: 105, src: '/images/Salwars/salwar4.jpg',   alt: 'Salwar', title: 'Designer Blouse',   category: 'salwar',                 occasions: ['Wedding', 'Festival'] },
+  { id: 107, src: '/images/Salwars/salwar6.JPEG',   alt: 'Salwar', title: 'Designer Blouse',   category: 'salwar',                 occasions: ['Wedding', 'Festival'] },
+  { id: 5,  src: '/images/Salwars/salwar7.jpg',           alt: 'Salwar',   title: 'Stylish Top',       category: 'salwar',                   occasions: ['Casual'] },
+  
+  
+  
+  { id: 108, src: '/images/Frocks/frocks1.jpg',   alt: 'Frocks', title: 'Designer Blouse',   category: 'frocks',                 occasions: ['Wedding', 'Festival'] },
+  { id: 109, src: '/images/Frocks/frocks2.jpg',   alt: 'Frocks', title: 'Designer Blouse',   category: 'frocks',                 occasions: ['Wedding', 'Festival'] },
+  { id: 110, src: '/images/Frocks/frocks3.JPEG',   alt: 'Frocks', title: 'Designer Blouse',   category: 'frocks',                 occasions: ['Wedding', 'Festival'] },
+  { id: 111, src: '/images/Frocks/frocks4.1.jpg',   alt: 'Frocks', title: 'Designer Blouse',   category: 'frocks',                 occasions: ['Wedding', 'Festival'] },
+  { id: 112, src: '/images/Frocks/frocks4.2.jpg',   alt: 'Frocks', title: 'Designer Blouse',   category: 'frocks',                 occasions: ['Wedding', 'Festival'] },
+  { id: 102, src: '/images/Frocks/frocks5.jpg',   alt: 'Frocks', title: 'Designer Blouse',   category: 'frocks',                 occasions: ['Wedding', 'Festival'] },
+  { id: 106, src: '/images/Frocks/frocks6.jpg',   alt: 'Frocks', title: 'Designer Blouse',   category: 'frocks',                 occasions: ['Wedding', 'Festival'] },
+
+  { id: 113, src: '/images/Kids/kids1.JPEG',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 114, src: '/images/Kids/kids2.JPEG',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 115, src: '/images/Kids/kids3.JPEG',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 116, src: '/images/Kids/kids4.1.jpg',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 117, src: '/images/Kids/kids4.2.jpg',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 118, src: '/images/Kids/kids5.JPEG',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 119, src: '/images/Kids/kids6.JPEG',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 120, src: '/images/Kids/kids7.JPEG',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 121, src: '/images/Kids/kids8.jpg',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 122, src: '/images/Kids/kids9.1.JPEG',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 123, src: '/images/Kids/kids9.2.JPEG',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 124, src: '/images/Kids/kids10.1.JPEG',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 125, src: '/images/Kids/kids10.2.JPEG',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 126, src: '/images/Kids/kids10.3.jpg',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 127, src: '/images/Kids/kids11.jpg',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 128, src: '/images/Kids/kids12.jpg',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 129, src: '/images/Kids/kids13.JPEG',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 130, src: '/images/Kids/kids14.1.jpeg',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  
+  
+  
+  
+  
+  { id: 131, src: '/images/Kids/kids14.2.jpeg',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 132, src: '/images/Kids/kids15.JPEG',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 133, src: '/images/Kids/kids16.jpg',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 134, src: '/images/Kids/kids17.1.jpg',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 135, src: '/images/Kids/kids17.2.jpg',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 136, src: '/images/Kids/kids17.3.jpg',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 137, src: '/images/Kids/kids17.4.jpg',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 138, src: '/images/Kids/kids20.1.jpg',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 139, src: '/images/Kids/kids20.2.png',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 140, src: '/images/Kids/kids21.jpeg',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 141, src: '/images/Kids/kids22.1.JPEG',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 142, src: '/images/Kids/kids22.2.JPEG',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 143, src: '/images/Kids/kids23.1.JPEG',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 144, src: '/images/Kids/kids23.2.JPEG',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 145, src: '/images/Kids/kids24.1.JPEG',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 146, src: '/images/Kids/kids24.2.JPEG',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 147, src: '/images/Kids/kids24.3.JPEG',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 148, src: '/images/Kids/kids25.JPEG',   alt: 'Kids', title: 'Designer Blouse',   category: 'kids',                 occasions: ['Wedding', 'Festival'] },
+  { id: 11,  src: '/images/Kids/kids27.JPEG',           alt: 'Kids',   title: 'Stylish Top',       category: 'kids',                   occasions: ['Casual'] },
+  { id: 21,  src: '/images/Kids/kids28.jpeg',           alt: 'Kids',   title: 'Stylish Top',       category: 'kids',                   occasions: ['Casual', 'Festival'] },
+
+
+  { id: 23,  src: '/images/Kids/kids29.jpeg',           alt: 'Kids',   title: 'Stylish Top',       category: 'kids',                   occasions: ['Casual'] },
+  { id: 24,  src: '/images/Kids/kids30.jpeg',           alt: 'Kids',   title: 'Stylish Top',       category: 'kids',                   occasions: ['Casual', 'Party'] },
+  { id: 49, src: '/images/Kids/kids31.JPG',   alt: 'Kids', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Festival', 'Party'] },
+  
+
+  { id: 8,  src: '/images/Kids/kids32.1.JPEG',           alt: 'Kids',   title: 'Stylish Top',       category: 'kids',                   occasions: ['Casual'] },
+  { id: 9,  src: '/images/Kids/kids32.2.JPEG',           alt: 'Kids',   title: 'Stylish Top',       category: 'kids',                   occasions: ['Casual', 'Festival'] },
+  { id: 10,  src: '/images/Kids/kids33.JPEG',           alt: 'Kids',   title: 'Stylish Top',       category: 'kids',   featured: true, occasions: ['Party', 'Festival'] },
+  
+  
+  { id: 150, src: '/images/Nightsuit/nightsuit1.jpg',   alt: 'Nightsuit', title: 'Designer Blouse',   category: 'nightsuit',                 occasions: ['Wedding', 'Festival'] },
+
 ];
 
 const SIZE_GUIDE = [
@@ -39,12 +221,37 @@ const SIZE_GUIDE = [
   { size: 'XXL',bust: '42"', waist: '36"', hip: '46"' },
 ];
 
+// Helper to extract base product name (e.g., "tops1" from "tops1.1.JPG")
+const getBaseProductName = (src) => {
+  const filename = src.split('/').pop();
+  const withoutExt = filename.replace(/\.[a-zA-Z0-9]+$/, '');
+  return withoutExt.replace(/\.\d+$/, '');
+};
+
+// Group products by variation
+const groupProductsByVariation = (products) => {
+  const grouped = {};
+  products.forEach(product => {
+    const base = getBaseProductName(product.src);
+    if (!grouped[base]) {
+      grouped[base] = [];
+    }
+    grouped[base].push(product);
+  });
+  return Object.values(grouped).map(variations => ({
+    id: variations[0].id,
+    baseProduct: variations[0],
+    variations: variations.sort((a, b) => a.id - b.id)
+  }));
+};
+
 function Collections() {
   const [searchParams, setSearchParams]   = useSearchParams();
   const [activeFilter, setActiveFilter]   = useState('all');
   const [activeOccasion, setActiveOccasion] = useState(() => searchParams.get('occasion') || '');
   const [search, setSearch]               = useState('');
-  const [modalImage, setModalImage]       = useState(null);
+  const [modalGroupIndex, setModalGroupIndex]     = useState(null);
+  const [modalVariationIndex, setModalVariationIndex] = useState(0);
   const [showSizeGuide, setShowSizeGuide] = useState(false);
 
   useEffect(() => {
@@ -57,13 +264,27 @@ function Collections() {
     setSearchParams({});
   };
 
-  const filtered = PRODUCTS.filter(p => {
+  const filteredProducts = PRODUCTS.filter(p => {
     const matchCat      = activeFilter === 'all' || p.category === activeFilter;
     const matchOccasion = !activeOccasion || (p.occasions && p.occasions.includes(activeOccasion));
     const matchSearch   = p.title.toLowerCase().includes(search.toLowerCase()) ||
                           p.category.toLowerCase().includes(search.toLowerCase());
     return matchCat && matchOccasion && matchSearch;
   });
+
+  const grouped = groupProductsByVariation(filteredProducts);
+
+  useEffect(() => {
+    if (modalGroupIndex === null) return;
+    const currentGroup = grouped[modalGroupIndex];
+    const handleKey = (e) => {
+      if (e.key === 'ArrowRight') setModalVariationIndex(i => Math.min(i + 1, currentGroup.variations.length - 1));
+      if (e.key === 'ArrowLeft')  setModalVariationIndex(i => Math.max(i - 1, 0));
+      if (e.key === 'Escape')     setModalGroupIndex(null);
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [modalGroupIndex, grouped]);
 
   const orderOnWhatsApp = (product) => {
     const imageUrl = `${window.location.origin}${product.src}`;
@@ -98,7 +319,7 @@ function Collections() {
           )}
         </div>
         <div className="coll-toolbar-right">
-          <span className="coll-count">{filtered.length} item{filtered.length !== 1 ? 's' : ''}</span>
+          <span className="coll-count">{grouped.length} item{grouped.length !== 1 ? 's' : ''}</span>
           <button className="coll-size-btn" onClick={() => setShowSizeGuide(true)}>
             <i className="fas fa-ruler-horizontal"></i> Size Guide
           </button>
@@ -136,7 +357,7 @@ function Collections() {
       </div>
 
       {/* Products */}
-      {filtered.length === 0 ? (
+      {grouped.length === 0 ? (
         <div className="coll-empty">
           <div className="coll-empty-icon"><i className="fas fa-search"></i></div>
           <h3>No products found</h3>
@@ -147,53 +368,63 @@ function Collections() {
         </div>
       ) : (
         <div className="coll-grid">
-          {filtered.map(product => (
-            <div key={product.id} className="coll-card">
-              {product.isNew    && <span className="coll-badge new">New</span>}
-              {product.featured && <span className="coll-badge featured"><i className="fas fa-star"></i> Featured</span>}
+          {grouped.map((group, groupIdx) => {
+            const product = group.baseProduct;
+            return (
+              <div key={group.id} className="coll-card">
+                {product.isNew    && <span className="coll-badge new">New</span>}
+                {product.featured && <span className="coll-badge featured"><i className="fas fa-star"></i> Featured</span>}
+                {group.variations.length > 1 && <span className="coll-badge variations">{group.variations.length} views</span>}
 
-              <div className="coll-img-wrap">
-                <img src={product.src} alt={product.alt} />
-                <div className="coll-overlay">
-                  <button
-                    className="coll-overlay-btn view"
-                    onClick={() => setModalImage(product.src)}
-                    title="Quick View"
-                  >
-                    <i className="fas fa-expand-alt"></i>
-                  </button>
-                  <button
-                    className="coll-overlay-btn wa"
-                    onClick={() => orderOnWhatsApp(product)}
-                    title="Order via WhatsApp"
-                  >
-                    <i className="fab fa-whatsapp"></i>
-                  </button>
-                </div>
-                <div className="coll-cat-tag">
-                  <i className={CATEGORY_META[product.category]?.icon}></i>
-                  {CATEGORY_META[product.category]?.label || product.category}
+                <div className="coll-img-wrap">
+                  <img src={product.src} alt={product.alt} />
+                  <div className="coll-overlay">
+                    <button
+                      className="coll-overlay-btn view"
+                      onClick={() => { setModalGroupIndex(groupIdx); setModalVariationIndex(0); }}
+                      title="Quick View"
+                    >
+                      <i className="fas fa-expand-alt"></i>
+                    </button>
+                    <button
+                      className="coll-overlay-btn wa"
+                      onClick={() => orderOnWhatsApp(product)}
+                      title="Order via WhatsApp"
+                    >
+                      <i className="fab fa-whatsapp"></i>
+                    </button>
+                  </div>
+                  <div className="coll-cat-tag">
+                    <i className={CATEGORY_META[product.category]?.icon}></i>
+                    {CATEGORY_META[product.category]?.label || product.category}
+                  </div>
                 </div>
               </div>
-
-              {/* <div className="coll-card-body"> */}
-                {/* <h3>{product.title}</h3> */}
-                {/* <button className="coll-wa-btn" onClick={() => orderOnWhatsApp(product)}>
-                  <i className="fab fa-whatsapp"></i> Order via WhatsApp
-                </button> */}
-              {/* </div> */}
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
 
       {/* Image Lightbox */}
-      {modalImage && (
-        <div className="coll-lightbox" onClick={() => setModalImage(null)}>
-          <button className="coll-lb-close" onClick={() => setModalImage(null)}>
+      {modalGroupIndex !== null && grouped[modalGroupIndex] && (
+        <div className="coll-lightbox" onClick={() => setModalGroupIndex(null)}>
+          <button className="coll-lb-close" onClick={() => setModalGroupIndex(null)}>
             <i className="fas fa-times"></i>
           </button>
-          <img src={modalImage} alt="Preview" onClick={e => e.stopPropagation()} />
+          {modalVariationIndex > 0 && (
+            <button className="coll-lb-prev" onClick={e => { e.stopPropagation(); setModalVariationIndex(i => i - 1); }}>
+              <i className="fas fa-chevron-left"></i>
+            </button>
+          )}
+          <img src={grouped[modalGroupIndex].variations[modalVariationIndex].src} alt="Preview" onClick={e => e.stopPropagation()} />
+          {modalVariationIndex < grouped[modalGroupIndex].variations.length - 1 && (
+            <button className="coll-lb-next" onClick={e => { e.stopPropagation(); setModalVariationIndex(i => i + 1); }}>
+              <i className="fas fa-chevron-right"></i>
+            </button>
+          )}
+          <div className="coll-lb-counter" onClick={e => e.stopPropagation()}>
+            {modalVariationIndex + 1} / {grouped[modalGroupIndex].variations.length}
+          </div>
         </div>
       )}
 
