@@ -292,14 +292,11 @@ function Collections() {
 
     const handleTouchStart = (e) => {
       touchStartX = e.touches[0].clientX;
-      e.preventDefault();
     };
 
     const handleTouchMove = (e) => {
-      if (e.touches.length === 1) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
+      // Prevent default to block page scrolling and swipe navigation
+      e.preventDefault();
     };
 
     const handleTouchEnd = (e) => {
@@ -329,7 +326,7 @@ function Collections() {
     };
 
     window.addEventListener('keydown', handleKey);
-    document.addEventListener('touchstart', handleTouchStart, { passive: false });
+    document.addEventListener('touchstart', handleTouchStart, { passive: true });
     document.addEventListener('touchmove', handleTouchMove, { passive: false });
     document.addEventListener('touchend', handleTouchEnd, { passive: false });
     document.addEventListener('gesturestart', preventGestureNavigation, { passive: false });
@@ -465,7 +462,7 @@ function Collections() {
       {/* Image Lightbox */}
       {modalGroupIndex !== null && grouped[modalGroupIndex] && (
         <div className="coll-lightbox" onClick={() => setModalGroupIndex(null)}>
-          <button className="coll-lb-close" onClick={() => setModalGroupIndex(null)}>
+          <button className="coll-lb-close" onClick={(e) => { e.stopPropagation(); setModalGroupIndex(null); }}>
             <i className="fas fa-times"></i>
           </button>
           {modalVariationIndex > 0 && (
