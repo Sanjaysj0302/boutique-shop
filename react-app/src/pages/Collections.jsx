@@ -51,8 +51,8 @@ const PRODUCTS = [
   
   { id: 26,  src: '/images/Blouse/blouse1.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', isNew: true,    occasions: ['Festival'] },
   { id: 27,  src: '/images/Blouse/blouse1.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Festival'] },
-  { id: 28,  src: '/images/Blouse/blouse2.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', featured: true, occasions: ['Wedding'] },
-  { id: 29, src: '/images/Blouse/blouse2.2.JPG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding'] },
+  { id: 28,  src: '/images/Blouse/blouse2.1.JPG',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', featured: true, occasions: ['Wedding'] },
+  { id: 29, src: '/images/Blouse/blouse2.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding'] },
   { id: 30, src: '/images/Blouse/blouse3.1.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse',                 occasions: ['Wedding'] },
 
   { id: 31,  src: '/images/Blouse/blouse3.2.jpg',   alt: 'Blouse', title: 'Designer Blouse',   category: 'blouse', isNew: true,    occasions: ['Wedding'] },
