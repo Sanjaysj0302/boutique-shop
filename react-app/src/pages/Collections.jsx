@@ -282,21 +282,16 @@ function Collections() {
     document.body.style.overscrollBehavior = 'none';
     document.documentElement.style.overscrollBehavior = 'none';
 
-    let touchStartX = 0;
-
     const handleKey = (e) => {
       if (e.key === 'ArrowRight') setModalVariationIndex(i => Math.min(i + 1, currentGroup.variations.length - 1));
       if (e.key === 'ArrowLeft')  setModalVariationIndex(i => Math.max(i - 1, 0));
       if (e.key === 'Escape')     setModalGroupIndex(null);
     };
 
+    let touchStartX = 0;
+
     const handleTouchStart = (e) => {
       touchStartX = e.touches[0].clientX;
-    };
-
-    const handleTouchMove = (e) => {
-      // Prevent default to block page scrolling and swipe navigation
-      e.preventDefault();
     };
 
     const handleTouchEnd = (e) => {
@@ -306,9 +301,6 @@ function Collections() {
       const threshold = 30;
 
       if (Math.abs(diff) > threshold) {
-        e.preventDefault();
-        e.stopPropagation();
-
         if (diff > 0) {
           // Swiped left - go to next
           setModalVariationIndex(i => Math.min(i + 1, currentGroup.variations.length - 1));
@@ -320,26 +312,17 @@ function Collections() {
       touchStartX = 0;
     };
 
-    const preventGestureNavigation = (e) => {
-      e.preventDefault();
-      return false;
-    };
-
     window.addEventListener('keydown', handleKey);
-    document.addEventListener('touchstart', handleTouchStart, { passive: true });
-    document.addEventListener('touchmove', handleTouchMove, { passive: false });
-    document.addEventListener('touchend', handleTouchEnd, { passive: false });
-    document.addEventListener('gesturestart', preventGestureNavigation, { passive: false });
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchend', handleTouchEnd, { passive: true });
 
     return () => {
       document.body.style.overflow = 'unset';
       document.body.style.overscrollBehavior = 'unset';
       document.documentElement.style.overscrollBehavior = 'unset';
       window.removeEventListener('keydown', handleKey);
-      document.removeEventListener('touchstart', handleTouchStart);
-      document.removeEventListener('touchmove', handleTouchMove);
-      document.removeEventListener('touchend', handleTouchEnd);
-      document.removeEventListener('gesturestart', preventGestureNavigation);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchend', handleTouchEnd);
     };
   }, [modalGroupIndex, grouped]);
 
