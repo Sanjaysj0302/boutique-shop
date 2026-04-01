@@ -298,6 +298,8 @@ function Collections() {
       const threshold = 50;
 
       if (Math.abs(diff) > threshold) {
+        e.preventDefault();
+        e.stopPropagation();
         if (diff > 0) {
           // Swiped left - go to next
           setModalVariationIndex(i => Math.min(i + 1, currentGroup.variations.length - 1));
@@ -309,14 +311,20 @@ function Collections() {
       touchStartX = 0;
     };
 
+    const handleTouchMove = (e) => {
+      e.preventDefault();
+    };
+
     window.addEventListener('keydown', handleKey);
-    window.addEventListener('touchstart', handleTouchStart);
-    window.addEventListener('touchend', handleTouchEnd);
+    window.addEventListener('touchstart', handleTouchStart, { passive: false });
+    window.addEventListener('touchmove', handleTouchMove, { passive: false });
+    window.addEventListener('touchend', handleTouchEnd, { passive: false });
 
     return () => {
       document.body.style.overflow = 'unset';
       window.removeEventListener('keydown', handleKey);
       window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('touchend', handleTouchEnd);
     };
   }, [modalGroupIndex, grouped]);
@@ -412,18 +420,15 @@ function Collections() {
                 {/* {group.variations.length > 1 && <span className="coll-badge variations">{group.variations.length} views</span>} */}
                 {group.variations.length > 1 && <span className="coll-badge new">{group.variations.length} views</span>}
 
-                <div className="coll-img-wrap">
+                <div
+                  className="coll-img-wrap"
+                  onClick={() => { setModalGroupIndex(groupIdx); setModalVariationIndex(0); }}
+                >
                   <img src={product.src} alt={product.alt} />
                   <div className="coll-overlay">
                     <button
-                      className="coll-overlay-btn view"
-                      onClick={() => { setModalGroupIndex(groupIdx); setModalVariationIndex(0); }}
-                      title="Quick View"
-                    >
-                    </button>
-                    <button
                       className="coll-overlay-btn wa"
-                      onClick={() => orderOnWhatsApp(product)}
+                      onClick={(e) => { e.stopPropagation(); orderOnWhatsApp(product); }}
                       title="Order via WhatsApp"
                     >
                       <i className="fab fa-whatsapp"></i>
