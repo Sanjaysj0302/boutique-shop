@@ -350,7 +350,7 @@ function Collections() {
           <i className="fas fa-search"></i>
           <input
             type="text"
-            placeholder="Search by name or category..."
+            placeholder="Search by name..."
             value={search}
             onChange={e => setSearch(e.target.value)}
           />
