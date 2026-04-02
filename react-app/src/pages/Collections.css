@@ -376,10 +376,6 @@
   box-shadow: 0 20px 60px rgba(0,0,0,0.5);
 }
 
-.coll-lb-img {
-  transition: transform 0.1s ease-out !important;
-}
-
 .coll-lb-close {
   position: fixed;
   top: 18px;

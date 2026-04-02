@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import './Collections.css';
 
@@ -245,8 +245,6 @@ function Collections() {
   const [modalVariationIndex, setModalVariationIndex] = useState(0);
   const [showCategoryMenu, setShowCategoryMenu] = useState(false);
   const [gridColumns, setGridColumns] = useState(3);
-  const [zoom, setZoom] = useState(1);
-  const lastDistanceRef = useRef(0);
 
   useEffect(() => {
     const occ = searchParams.get('occasion') || '';
@@ -285,38 +283,12 @@ function Collections() {
 
     let touchStartX = 0;
 
-    const getDistance = (touches) => {
-      if (touches.length !== 2) return 0;
-      const dx = touches[0].clientX - touches[1].clientX;
-      const dy = touches[0].clientY - touches[1].clientY;
-      return Math.sqrt(dx * dx + dy * dy);
-    };
-
     const handleTouchStart = (e) => {
-      if (e.touches.length === 2) {
-        lastDistanceRef.current = getDistance(e.touches);
-      } else {
-        touchStartX = e.touches[0].clientX;
-      }
-    };
-
-    const handleTouchMove = (e) => {
-      if (e.touches.length === 2) {
-        e.preventDefault();
-        const distance = getDistance(e.touches);
-        if (lastDistanceRef.current > 0) {
-          const ratio = distance / lastDistanceRef.current;
-          setZoom(z => Math.max(1, Math.min(3, z * ratio)));
-        }
-        lastDistanceRef.current = distance;
-      }
+      touchStartX = e.touches[0].clientX;
     };
 
     const handleTouchEnd = (e) => {
-      if (e.touches.length < 2) {
-        lastDistanceRef.current = 0;
-      }
-      if (!touchStartX || e.touches.length > 0) return;
+      if (!touchStartX) return;
       const touchEndX = e.changedTouches[0].clientX;
       const diff = touchStartX - touchEndX;
       const threshold = 30;
@@ -335,23 +307,15 @@ function Collections() {
 
     window.addEventListener('keydown', handleKey);
     window.addEventListener('touchstart', handleTouchStart, { passive: true });
-    window.addEventListener('touchmove', handleTouchMove, { passive: false });
     window.addEventListener('touchend', handleTouchEnd, { passive: true });
 
     return () => {
       document.body.style.overflow = 'unset';
       window.removeEventListener('keydown', handleKey);
       window.removeEventListener('touchstart', handleTouchStart);
-      window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('touchend', handleTouchEnd);
-      setZoom(1);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [modalGroupIndex, grouped]);
-
-  useEffect(() => {
-    setZoom(1);
-  }, [modalVariationIndex]);
 
   const orderOnWhatsApp = (product) => {
     const imageUrl = `${window.location.origin}${product.src}`;
@@ -529,13 +493,7 @@ function Collections() {
               <i className="fas fa-chevron-left"></i>
             </button>
           )}
-          <img
-            src={grouped[modalGroupIndex].variations[modalVariationIndex].src}
-            alt="Preview"
-            onClick={e => e.stopPropagation()}
-            style={{ transform: `scale(${zoom})`, cursor: zoom > 1 ? 'grab' : 'default' }}
-            className="coll-lb-img"
-          />
+          <img src={grouped[modalGroupIndex].variations[modalVariationIndex].src} alt="Preview" onClick={e => e.stopPropagation()} />
           {modalVariationIndex < grouped[modalGroupIndex].variations.length - 1 && (
             <button className="coll-lb-next" onClick={e => { e.stopPropagation(); setModalVariationIndex(i => i + 1); }}>
               <i className="fas fa-chevron-right"></i>
