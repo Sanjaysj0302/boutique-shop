@@ -277,10 +277,10 @@ function Collections() {
     if (modalGroupIndex === null) return;
     const currentGroup = grouped[modalGroupIndex];
 
-    // Prevent body scroll and swipe gestures when lightbox is open
+    // Prevent body scroll when lightbox is open
     document.body.style.overflow = 'hidden';
-    document.body.style.overscrollBehavior = 'none';
-    document.documentElement.style.overscrollBehavior = 'none';
+    // document.body.style.overscrollBehavior = 'none';
+    // document.documentElement.style.overscrollBehavior = 'unset';
 
     const handleKey = (e) => {
       if (e.key === 'ArrowRight') setModalVariationIndex(i => Math.min(i + 1, currentGroup.variations.length - 1));
@@ -293,6 +293,11 @@ function Collections() {
     const handleTouchStart = (e) => {
       touchStartX = e.touches[0].clientX;
     };
+
+    // const handleTouchMove = (e) => {
+    //   // Block page swipe navigation
+    //   e.preventDefault();
+    // };
 
     const handleTouchEnd = (e) => {
       if (!touchStartX) return;
@@ -314,14 +319,16 @@ function Collections() {
 
     window.addEventListener('keydown', handleKey);
     window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    // window.addEventListener('touchmove', handleTouchMove, { passive: false });
     window.addEventListener('touchend', handleTouchEnd, { passive: true });
 
     return () => {
       document.body.style.overflow = 'unset';
-      document.body.style.overscrollBehavior = 'unset';
-      document.documentElement.style.overscrollBehavior = 'unset';
+      // document.body.style.overscrollBehavior = 'unset';
+      // document.documentElement.style.overscrollBehavior = 'unset';
       window.removeEventListener('keydown', handleKey);
       window.removeEventListener('touchstart', handleTouchStart);
+      // window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('touchend', handleTouchEnd);
     };
   }, [modalGroupIndex, grouped]);
