@@ -346,6 +346,7 @@ function Collections() {
       window.removeEventListener('touchend', handleTouchEnd);
       setZoom(1);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [modalGroupIndex, grouped]);
 
   useEffect(() => {
