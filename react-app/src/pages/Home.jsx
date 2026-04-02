@@ -6,9 +6,9 @@ const WHATSAPP_NUMBER = 918870178081
 
 const IMAGES = [
   'https://images.pexels.com/photos/7364219/pexels-photo-7364219.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  'https://images.pexels.com/photos/27155550/pexels-photo-27155550.jpeg?auto=compress&cs=tinysrgb&w=1920',
   'https://images.pexels.com/photos/20777180/pexels-photo-20777180.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  'https://images.pexels.com/photos/7782013/pexels-photo-7782013.jpeg?auto=compress&cs=tinysrgb&w=1920',
+  'https://images.pexels.com/photos/27155550/pexels-photo-27155550.jpeg?auto=compress&cs=tinysrgb&w=1920',
+  'https://images.pexels.com/photos/20777204/pexels-photo-20777204.jpeg?auto=compress&cs=tinysrgb&w=1920',
   'https://images.pexels.com/photos/7168818/pexels-photo-7168818.jpeg?auto=compress&cs=tinysrgb&w=1920',
   'https://images.pexels.com/photos/1162983/pexels-photo-1162983.jpeg?auto=compress&cs=tinysrgb&w=1920',
   'https://images.pexels.com/photos/25184955/pexels-photo-25184955.jpeg?auto=compress&cs=tinysrgb&w=1920',
@@ -16,7 +16,7 @@ const IMAGES = [
   'https://images.pexels.com/photos/25184992/pexels-photo-25184992.jpeg?auto=compress&cs=tinysrgb&w=1920',
   'https://images.pexels.com/photos/7139184/pexels-photo-7139184.jpeg?auto=compress&cs=tinysrgb&w=1920',
   'https://images.pexels.com/photos/25185004/pexels-photo-25185004.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  'https://images.pexels.com/photos/32985958/pexels-photo-32985958.jpeg?auto=compress&cs=tinysrgb&w=1920',
+  'https://images.pexels.com/photos/34182996/pexels-photo-34182996.jpeg?auto=compress&cs=tinysrgb&w=1920',
 ];
 
 const STATS = [
@@ -58,12 +58,15 @@ const TESTIMONIALS = [
 
 const GALLERY = [
   // 'https://images.pexels.com/photos/7249953/pexels-photo-7249953.jpeg?auto=compress&cs=tinysrgb&w=600',
-  'https://images.pexels.com/photos/36090333/pexels-photo-36090333.jpeg?auto=compress&cs=tinysrgb&w=600',
-  'https://images.pexels.com/photos/7168818/pexels-photo-7168818.jpeg?auto=compress&cs=tinysrgb&w=600',
+  'https://images.pexels.com/photos/36552672/pexels-photo-36552672.jpeg?auto=compress&cs=tinysrgb&w=600',
+  'https://images.pexels.com/photos/36325835/pexels-photo-36325835.jpeg?auto=compress&cs=tinysrgb&w=600',
   'https://images.pexels.com/photos/4715311/pexels-photo-4715311.jpeg?auto=compress&cs=tinysrgb&w=600',
   'https://images.pexels.com/photos/1162983/pexels-photo-1162983.jpeg?auto=compress&cs=tinysrgb&w=600',
   'https://images.pexels.com/photos/7364219/pexels-photo-7364219.jpeg?auto=compress&cs=tinysrgb&w=600',
   'https://images.pexels.com/photos/25184992/pexels-photo-25184992.jpeg?auto=compress&cs=tinysrgb&w=600',
+  'https://images.pexels.com/photos/36325919/pexels-photo-36325919.jpeg?auto=compress&cs=tinysrgb&w=600',
+  'https://images.pexels.com/photos/33343615/pexels-photo-33343615.jpeg?auto=compress&cs=tinysrgb&w=600'
+
 ];
 
 const FAQS = [
@@ -318,7 +321,7 @@ function Home() {
         </div>
         <div className="gallery-grid">
           {GALLERY.map((src, i) => (
-            <div key={i} className={`gallery-item${i === 0 ? ' tall' : ''}`} onClick={() => setGalleryModal(src)}>
+            <div key={i} className={`gallery-item`} onClick={() => setGalleryModal(src)}>
               <img src={src} alt={`Gallery ${i + 1}`} />
               <div className="gallery-overlay"><i className="fas fa-expand"></i></div>
             </div>

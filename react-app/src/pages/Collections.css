@@ -361,7 +361,7 @@
   justify-content: center;
   padding: 20px;
   overflow: hidden;
-  touch-action: none;
+  touch-action: manipulation;
   overscroll-behavior: none;
   user-select: none;
   -webkit-user-select: none;
@@ -647,6 +647,7 @@
   cursor: pointer;
   border-left: 3px solid transparent;
   transition: all 0.2s;
+  white-space: nowrap;
 }
 
 .coll-category-item:hover {
@@ -665,6 +666,9 @@
   font-size: 1.1em;
   color: #c59d5f;
   opacity: 0.8;
+  width: 16px;
+  text-align: center;
+  flex-shrink: 0;
 }
 
 .coll-category-item:hover i,
