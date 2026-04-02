@@ -244,7 +244,7 @@ function Collections() {
   const [modalGroupIndex, setModalGroupIndex]     = useState(null);
   const [modalVariationIndex, setModalVariationIndex] = useState(0);
   const [showCategoryMenu, setShowCategoryMenu] = useState(false);
-  const [gridColumns, setGridColumns] = useState(1);
+  const [gridColumns, setGridColumns] = useState(() => window.innerWidth > 768 ? 3 : 1);
 
   useEffect(() => {
     const occ = searchParams.get('occasion') || '';
@@ -252,6 +252,14 @@ function Collections() {
     setActiveOccasion(occ);
     setActiveFilter(cat);
   }, [searchParams]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setGridColumns(window.innerWidth > 768 ? 3 : 1);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const clearOccasion = () => {
     setActiveOccasion('');
