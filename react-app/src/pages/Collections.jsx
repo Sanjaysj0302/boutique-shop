@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import './Collections.css';
 
@@ -246,7 +246,7 @@ function Collections() {
   const [showCategoryMenu, setShowCategoryMenu] = useState(false);
   const [gridColumns, setGridColumns] = useState(3);
   const [zoom, setZoom] = useState(1);
-  const [lastDistance, setLastDistance] = useState(0);
+  const lastDistanceRef = useRef(0);
 
   useEffect(() => {
     const occ = searchParams.get('occasion') || '';
@@ -294,7 +294,7 @@ function Collections() {
 
     const handleTouchStart = (e) => {
       if (e.touches.length === 2) {
-        setLastDistance(getDistance(e.touches));
+        lastDistanceRef.current = getDistance(e.touches);
       } else {
         touchStartX = e.touches[0].clientX;
       }
@@ -304,17 +304,17 @@ function Collections() {
       if (e.touches.length === 2) {
         e.preventDefault();
         const distance = getDistance(e.touches);
-        if (lastDistance > 0) {
-          const ratio = distance / lastDistance;
+        if (lastDistanceRef.current > 0) {
+          const ratio = distance / lastDistanceRef.current;
           setZoom(z => Math.max(1, Math.min(3, z * ratio)));
         }
-        setLastDistance(distance);
+        lastDistanceRef.current = distance;
       }
     };
 
     const handleTouchEnd = (e) => {
       if (e.touches.length < 2) {
-        setLastDistance(0);
+        lastDistanceRef.current = 0;
       }
       if (!touchStartX || e.touches.length > 0) return;
       const touchEndX = e.changedTouches[0].clientX;
