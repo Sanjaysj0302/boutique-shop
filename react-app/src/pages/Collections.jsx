@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import './Collections.css';
 
-const WHATSAPP_NUMBER = 918870178081
+const WHATSAPP_NUMBER = 919944363616
 
 const CATEGORY_META = {
   // all:         { label: 'All',         icon: 'fas fa-th' },

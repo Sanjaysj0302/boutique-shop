@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
-const WHATSAPP_NUMBER = 918870178081
+const WHATSAPP_NUMBER = 919944363616
 
 const IMAGES = [
   'https://images.pexels.com/photos/7364219/pexels-photo-7364219.jpeg?auto=compress&cs=tinysrgb&w=1920',
