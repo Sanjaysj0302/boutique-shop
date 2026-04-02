@@ -7,11 +7,11 @@ const WHATSAPP_NUMBER = 918870178081
 const CATEGORY_META = {
   // all:         { label: 'All',         icon: 'fas fa-th' },
   tops:        { label: 'Tops',        icon: 'fas fa-tshirt' },
-  skirttop:        { label: 'Skirt & Top',        icon: 'fas fa-tshirt' },
-  lehenga:        { label: 'Lehenga',        icon: 'fas fa-tshirt' },
-  blouse:      { label: 'Blouse',      icon: 'fas fa-female' },
-  salwar:      { label: 'Salwar',      icon: 'fas fa-spa' },
-  frocks:     { label: 'Frocks',     icon: 'fas fa-star' },
+  skirttop:        { label: 'Skirt & Top',        icon: 'fas fa-female' },
+  lehenga:        { label: 'Lehenga',        icon: 'fas fa-crown' },
+  blouse:      { label: 'Blouse',      icon: 'fas fa-vest' },
+  salwar:      { label: 'Salwar',      icon: 'fas fa-user' },
+  frocks:     { label: 'Frocks',     icon: 'fas fa-heart' },
   kids:        { label: 'Kids',        icon: 'fas fa-child' },
   // nightsuit: { label: 'Nightsuit', icon: 'fas fa-moon' },
   accessories: { label: 'Accessories', icon: 'fas fa-gem' },
@@ -245,6 +245,7 @@ function Collections() {
   const [modalVariationIndex, setModalVariationIndex] = useState(0);
   const [showCategoryMenu, setShowCategoryMenu] = useState(false);
   const [gridColumns, setGridColumns] = useState(() => window.innerWidth > 768 ? 3 : 1);
+  const [isManualSelection, setIsManualSelection] = useState(false);
 
   useEffect(() => {
     const occ = searchParams.get('occasion') || '';
@@ -254,12 +255,14 @@ function Collections() {
   }, [searchParams]);
 
   useEffect(() => {
+    if (isManualSelection) return; // Don't override manual selection
+
     const handleResize = () => {
       setGridColumns(window.innerWidth > 768 ? 3 : 1);
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [isManualSelection]);
 
   const clearOccasion = () => {
     setActiveOccasion('');
@@ -362,21 +365,21 @@ function Collections() {
           <div className="coll-view-toggles">
             <button
               className={`view-toggle${gridColumns === 1 ? ' active' : ''}`}
-              onClick={() => setGridColumns(1)}
+              onClick={() => { setGridColumns(1); setIsManualSelection(true); }}
               title="Single column"
             >
               <i className="fas fa-list"></i>
             </button>
             <button
               className={`view-toggle${gridColumns === 2 ? ' active' : ''}`}
-              onClick={() => setGridColumns(2)}
+              onClick={() => { setGridColumns(2); setIsManualSelection(true); }}
               title="Double column"
             >
               <i className="fas fa-columns"></i>
             </button>
             <button
               className={`view-toggle${gridColumns === 3 ? ' active' : ''}`}
-              onClick={() => setGridColumns(3)}
+              onClick={() => { setGridColumns(3); setIsManualSelection(true); }}
               title="Triple column"
             >
               <i className="fas fa-th"></i>

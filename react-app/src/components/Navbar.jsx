@@ -3,12 +3,13 @@ import { NavLink, useNavigate } from 'react-router-dom';
 
 const CATEGORY_META = {
   tops:        { label: 'Tops',        icon: 'fas fa-tshirt' },
-  skirttop:    { label: 'Skirt & Top', icon: 'fas fa-tshirt' },
-  lehenga:     { label: 'Lehenga',     icon: 'fas fa-tshirt' },
-  blouse:      { label: 'Blouse',      icon: 'fas fa-female' },
-  salwar:      { label: 'Salwar',      icon: 'fas fa-spa' },
-  frocks:      { label: 'Frocks',      icon: 'fas fa-star' },
+  skirttop:    { label: 'Skirt & Top', icon: 'fas fa-female' },
+  lehenga:     { label: 'Lehenga',     icon: 'fas fa-crown' },
+  blouse:      { label: 'Blouse',      icon: 'fas fa-vest' },
+  salwar:      { label: 'Salwar',      icon: 'fas fa-user' },
+  frocks:      { label: 'Frocks',      icon: 'fas fa-heart' },
   kids:        { label: 'Kids',        icon: 'fas fa-child' },
+  accessories: { label: 'Accessories', icon: 'fas fa-gem' },
 };
 
 function Navbar() {
@@ -45,10 +46,10 @@ function Navbar() {
       </div>
 
       {/* Center brand — mobile only */}
-      {/* <div className="header-center">
-        <span className="header-brand-name">Nila Instyle</span>
-        {/* <span className="header-brand-tagline">be your own label</span> */}
-      {/* </div> */} 
+        {/* <div className="header-center"> */}
+        {/* <span className="header-brand-name">Nila Instyle</span> */}
+        {/* <span className="header-brand-tagline">be your own label</span>  */}
+       {/* </div>  */}
 
       {/* Hamburger button — mobile only */}
       <button className="hamburger" onClick={() => setMenuOpen(o => !o)} aria-label="Menu">

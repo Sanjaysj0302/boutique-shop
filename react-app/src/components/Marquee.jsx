@@ -4,6 +4,7 @@ const MARQUEE_ITEMS = [
   { icon: 'fas fa-star',        text: 'Premium Fabrics · Expert Tailors · Perfect Fit — Every Time.' },
   { icon: 'fab fa-whatsapp',    text: 'Order via WhatsApp — Quick, Easy & Personalised.' },
   { icon: 'fas fa-heart',       text: 'Crafted with Love for Every Occasion — Weddings, Festivals & Daily Wear.' },
+  { icon: 'fas fa-female',      text: 'Exclusive for Women & Kids — Celebrate Your Uniqueness!' },
 ];
 
 function Marquee() {
