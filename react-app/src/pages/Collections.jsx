@@ -211,14 +211,6 @@ const PRODUCTS = [
 
 ];
 
-const SIZE_GUIDE = [
-  { size: 'XS', bust: '32"', waist: '26"', hip: '36"' },
-  { size: 'S',  bust: '34"', waist: '28"', hip: '38"' },
-  { size: 'M',  bust: '36"', waist: '30"', hip: '40"' },
-  { size: 'L',  bust: '38"', waist: '32"', hip: '42"' },
-  { size: 'XL', bust: '40"', waist: '34"', hip: '44"' },
-  { size: 'XXL',bust: '42"', waist: '36"', hip: '46"' },
-];
 
 // Helper to extract base product name (e.g., "tops1" from "tops1.1.JPG")
 const getBaseProductName = (src) => {
@@ -251,8 +243,10 @@ function Collections() {
   const [search, setSearch]               = useState('');
   const [modalGroupIndex, setModalGroupIndex]     = useState(null);
   const [modalVariationIndex, setModalVariationIndex] = useState(0);
-  const [showSizeGuide, setShowSizeGuide] = useState(false);
   const [showCategoryMenu, setShowCategoryMenu] = useState(false);
+  const [gridColumns, setGridColumns] = useState(3);
+  const [zoom, setZoom] = useState(1);
+  const [lastDistance, setLastDistance] = useState(0);
 
   useEffect(() => {
     const occ = searchParams.get('occasion') || '';
@@ -291,12 +285,38 @@ function Collections() {
 
     let touchStartX = 0;
 
+    const getDistance = (touches) => {
+      if (touches.length !== 2) return 0;
+      const dx = touches[0].clientX - touches[1].clientX;
+      const dy = touches[0].clientY - touches[1].clientY;
+      return Math.sqrt(dx * dx + dy * dy);
+    };
+
     const handleTouchStart = (e) => {
-      touchStartX = e.touches[0].clientX;
+      if (e.touches.length === 2) {
+        setLastDistance(getDistance(e.touches));
+      } else {
+        touchStartX = e.touches[0].clientX;
+      }
+    };
+
+    const handleTouchMove = (e) => {
+      if (e.touches.length === 2) {
+        e.preventDefault();
+        const distance = getDistance(e.touches);
+        if (lastDistance > 0) {
+          const ratio = distance / lastDistance;
+          setZoom(z => Math.max(1, Math.min(3, z * ratio)));
+        }
+        setLastDistance(distance);
+      }
     };
 
     const handleTouchEnd = (e) => {
-      if (!touchStartX) return;
+      if (e.touches.length < 2) {
+        setLastDistance(0);
+      }
+      if (!touchStartX || e.touches.length > 0) return;
       const touchEndX = e.changedTouches[0].clientX;
       const diff = touchStartX - touchEndX;
       const threshold = 30;
@@ -315,15 +335,22 @@ function Collections() {
 
     window.addEventListener('keydown', handleKey);
     window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: false });
     window.addEventListener('touchend', handleTouchEnd, { passive: true });
 
     return () => {
       document.body.style.overflow = 'unset';
       window.removeEventListener('keydown', handleKey);
       window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('touchend', handleTouchEnd);
+      setZoom(1);
     };
   }, [modalGroupIndex, grouped]);
+
+  useEffect(() => {
+    setZoom(1);
+  }, [modalVariationIndex]);
 
   const orderOnWhatsApp = (product) => {
     const imageUrl = `${window.location.origin}${product.src}`;
@@ -359,16 +386,35 @@ function Collections() {
         </div>
         <div className="coll-toolbar-right">
           <span className="coll-count">{grouped.length} item{grouped.length !== 1 ? 's' : ''}</span>
-          <button className="coll-size-btn" onClick={() => setShowSizeGuide(true)}>
-            <i className="fas fa-ruler-horizontal"></i> Size Guide
-          </button>
+          <div className="coll-view-toggles">
+            <button
+              className={`view-toggle${gridColumns === 1 ? ' active' : ''}`}
+              onClick={() => setGridColumns(1)}
+              title="Single column"
+            >
+              <i className="fas fa-list"></i>
+            </button>
+            <button
+              className={`view-toggle${gridColumns === 2 ? ' active' : ''}`}
+              onClick={() => setGridColumns(2)}
+              title="Double column"
+            >
+              <i className="fas fa-columns"></i>
+            </button>
+            <button
+              className={`view-toggle${gridColumns === 3 ? ' active' : ''}`}
+              onClick={() => setGridColumns(3)}
+              title="Triple column"
+            >
+              <i className="fas fa-th"></i>
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Occasion banner */}
       {activeOccasion && (
         <div className="coll-occasion-banner">
-          <i className="fas fa-filter"></i>
           Showing: <strong>{activeOccasion}</strong> occasion
           <button className="coll-occasion-clear" onClick={clearOccasion}>
             <i className="fas fa-times"></i> Clear
@@ -398,7 +444,7 @@ function Collections() {
       {/* Filters - Mobile */}
       <div className="coll-filters-mobile">
         <button className="coll-category-toggle" onClick={() => setShowCategoryMenu(!showCategoryMenu)}>
-          <i className="fas fa-filter"></i>
+          {/* <i className="fas fa-filter"></i> */}
           <span>{CATEGORY_META[activeFilter]?.label || 'Categories'}</span>
           <i className={`fas fa-chevron-${showCategoryMenu ? 'up' : 'down'}`}></i>
         </button>
@@ -436,7 +482,7 @@ function Collections() {
           </button>
         </div>
       ) : (
-        <div className="coll-grid">
+        <div className="coll-grid" style={{ gridTemplateColumns: `repeat(${gridColumns}, 1fr)` }}>
           {grouped.map((group, groupIdx) => {
             const product = group.baseProduct;
             return (
@@ -482,7 +528,13 @@ function Collections() {
               <i className="fas fa-chevron-left"></i>
             </button>
           )}
-          <img src={grouped[modalGroupIndex].variations[modalVariationIndex].src} alt="Preview" onClick={e => e.stopPropagation()} />
+          <img
+            src={grouped[modalGroupIndex].variations[modalVariationIndex].src}
+            alt="Preview"
+            onClick={e => e.stopPropagation()}
+            style={{ transform: `scale(${zoom})`, cursor: zoom > 1 ? 'grab' : 'default' }}
+            className="coll-lb-img"
+          />
           {modalVariationIndex < grouped[modalGroupIndex].variations.length - 1 && (
             <button className="coll-lb-next" onClick={e => { e.stopPropagation(); setModalVariationIndex(i => i + 1); }}>
               <i className="fas fa-chevron-right"></i>
@@ -494,47 +546,6 @@ function Collections() {
         </div>
       )}
 
-      {/* Size Guide Modal */}
-      {showSizeGuide && (
-        <div className="coll-lightbox" onClick={() => setShowSizeGuide(false)}>
-          <div className="coll-sg-modal" onClick={e => e.stopPropagation()}>
-            <div className="coll-sg-header">
-              <div>
-                <h2><i className="fas fa-ruler-combined"></i> Size Guide</h2>
-                <p>All measurements in inches</p>
-              </div>
-              <button className="coll-sg-close" onClick={() => setShowSizeGuide(false)}>
-                <i className="fas fa-times"></i>
-              </button>
-            </div>
-            <div className="coll-sg-body">
-              <p className="coll-sg-note">
-                <i className="fas fa-info-circle"></i>
-                Measure over undergarments for the best fit.
-              </p>
-              <table className="coll-sg-table">
-                <thead>
-                  <tr><th>Size</th><th>Bust</th><th>Waist</th><th>Hip</th></tr>
-                </thead>
-                <tbody>
-                  {SIZE_GUIDE.map(row => (
-                    <tr key={row.size}>
-                      <td><span className="sg-size-pill">{row.size}</span></td>
-                      <td>{row.bust}</td>
-                      <td>{row.waist}</td>
-                      <td>{row.hip}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              <p className="coll-sg-tip">
-                <i className="fas fa-comment-alt"></i>
-                Not sure? <a href="/contact">Contact us</a> for personalised sizing help.
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 }

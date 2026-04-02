@@ -57,7 +57,7 @@ const TESTIMONIALS = [
 ];
 
 const GALLERY = [
-  'https://images.pexels.com/photos/7249953/pexels-photo-7249953.jpeg?auto=compress&cs=tinysrgb&w=600',
+  // 'https://images.pexels.com/photos/7249953/pexels-photo-7249953.jpeg?auto=compress&cs=tinysrgb&w=600',
   'https://images.pexels.com/photos/36090333/pexels-photo-36090333.jpeg?auto=compress&cs=tinysrgb&w=600',
   'https://images.pexels.com/photos/7168818/pexels-photo-7168818.jpeg?auto=compress&cs=tinysrgb&w=600',
   'https://images.pexels.com/photos/4715311/pexels-photo-4715311.jpeg?auto=compress&cs=tinysrgb&w=600',

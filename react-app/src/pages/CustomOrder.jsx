@@ -3,6 +3,15 @@ import './CustomOrder.css';
 
 const WHATSAPP_NUMBER = 918870178081
 
+const SIZE_GUIDE = [
+  { size: 'XS', bust: '32"', waist: '26"', hip: '36"' },
+  { size: 'S',  bust: '34"', waist: '28"', hip: '38"' },
+  { size: 'M',  bust: '36"', waist: '30"', hip: '40"' },
+  { size: 'L',  bust: '38"', waist: '32"', hip: '42"' },
+  { size: 'XL', bust: '40"', waist: '34"', hip: '44"' },
+  { size: 'XXL',bust: '42"', waist: '36"', hip: '46"' },
+];
+
 const INITIAL = {
   name: '', mobile: '', occasion: '', outfit: '',
   fabric: '', color: '', chest: '', waist: '', hip: '',
@@ -12,6 +21,7 @@ const INITIAL = {
 function CustomOrder() {
   const [form, setForm]     = useState(INITIAL);
   const [status, setStatus] = useState('idle');
+  const [showSizeGuide, setShowSizeGuide] = useState(false);
 
   const handleChange = (e) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -153,7 +163,40 @@ function CustomOrder() {
             </div>
           </div>
 
-          <h3 className="measurements-heading"><i className="fas fa-ruler-combined"></i> Measurements (in inches)</h3>
+          <div className="measurements-header">
+            <h3 className="measurements-heading"><i className="fas fa-ruler-combined"></i> Measurements (in inches)</h3>
+            <button
+              type="button"
+              className="size-guide-btn"
+              onClick={() => setShowSizeGuide(!showSizeGuide)}
+            >
+              <i className="fas fa-ruler-horizontal"></i> Size Guide
+            </button>
+          </div>
+
+          {showSizeGuide && (
+            <div className="size-guide-card">
+              <p className="size-guide-note">
+                <i className="fas fa-info-circle"></i>
+                Measure over undergarments for the best fit.
+              </p>
+              <table className="size-guide-table">
+                <thead>
+                  <tr><th>Size</th><th>Bust</th><th>Waist</th><th>Hip</th></tr>
+                </thead>
+                <tbody>
+                  {SIZE_GUIDE.map(row => (
+                    <tr key={row.size}>
+                      <td><span className="size-pill">{row.size}</span></td>
+                      <td>{row.bust}</td>
+                      <td>{row.waist}</td>
+                      <td>{row.hip}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
 
           <div className="form-row four-col">
             <div className="form-group">
