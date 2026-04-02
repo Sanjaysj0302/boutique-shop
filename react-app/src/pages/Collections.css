@@ -229,9 +229,9 @@
   position: absolute;
   top: 14px;
   left: 14px;
-  padding: 5px 13px;
+  padding: 1px 5px;
   border-radius: 50px;
-  font-size: 0.72em;
+  font-size: 0.52em;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -275,8 +275,8 @@
 .coll-card:hover .coll-overlay { opacity: 1; }
 
 .coll-overlay-btn {
-  width: 42px;
-  height: 42px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   border: none;
   display: flex;
@@ -302,9 +302,9 @@
   background: rgba(0,0,0,0.6);
   backdrop-filter: blur(4px);
   color: rgba(255,255,255,0.9);
-  padding: 5px 12px;
+  padding: 2px 3px;
   border-radius: 50px;
-  font-size: 0.75em;
+  font-size: 0.5em;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.8px;

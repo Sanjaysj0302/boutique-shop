@@ -244,7 +244,7 @@ function Collections() {
   const [modalGroupIndex, setModalGroupIndex]     = useState(null);
   const [modalVariationIndex, setModalVariationIndex] = useState(0);
   const [showCategoryMenu, setShowCategoryMenu] = useState(false);
-  const [gridColumns, setGridColumns] = useState(3);
+  const [gridColumns, setGridColumns] = useState(1);
 
   useEffect(() => {
     const occ = searchParams.get('occasion') || '';
