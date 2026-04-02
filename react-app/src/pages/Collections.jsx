@@ -5,7 +5,7 @@ import './Collections.css';
 const WHATSAPP_NUMBER = 918870178081
 
 const CATEGORY_META = {
-  all:         { label: 'All',         icon: 'fas fa-th' },
+  // all:         { label: 'All',         icon: 'fas fa-th' },
   tops:        { label: 'Tops',        icon: 'fas fa-tshirt' },
   skirttop:        { label: 'Skirt & Top',        icon: 'fas fa-tshirt' },
   lehenga:        { label: 'Lehenga',        icon: 'fas fa-tshirt' },
@@ -252,10 +252,13 @@ function Collections() {
   const [modalGroupIndex, setModalGroupIndex]     = useState(null);
   const [modalVariationIndex, setModalVariationIndex] = useState(0);
   const [showSizeGuide, setShowSizeGuide] = useState(false);
+  const [showCategoryMenu, setShowCategoryMenu] = useState(false);
 
   useEffect(() => {
     const occ = searchParams.get('occasion') || '';
+    const cat = searchParams.get('category') || 'all';
     setActiveOccasion(occ);
+    setActiveFilter(cat);
   }, [searchParams]);
 
   const clearOccasion = () => {
@@ -279,8 +282,6 @@ function Collections() {
 
     // Prevent body scroll when lightbox is open
     document.body.style.overflow = 'hidden';
-    // document.body.style.overscrollBehavior = 'none';
-    // document.documentElement.style.overscrollBehavior = 'unset';
 
     const handleKey = (e) => {
       if (e.key === 'ArrowRight') setModalVariationIndex(i => Math.min(i + 1, currentGroup.variations.length - 1));
@@ -293,11 +294,6 @@ function Collections() {
     const handleTouchStart = (e) => {
       touchStartX = e.touches[0].clientX;
     };
-
-    // const handleTouchMove = (e) => {
-    //   // Block page swipe navigation
-    //   e.preventDefault();
-    // };
 
     const handleTouchEnd = (e) => {
       if (!touchStartX) return;
@@ -319,16 +315,12 @@ function Collections() {
 
     window.addEventListener('keydown', handleKey);
     window.addEventListener('touchstart', handleTouchStart, { passive: true });
-    // window.addEventListener('touchmove', handleTouchMove, { passive: false });
     window.addEventListener('touchend', handleTouchEnd, { passive: true });
 
     return () => {
       document.body.style.overflow = 'unset';
-      // document.body.style.overscrollBehavior = 'unset';
-      // document.documentElement.style.overscrollBehavior = 'unset';
       window.removeEventListener('keydown', handleKey);
       window.removeEventListener('touchstart', handleTouchStart);
-      // window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('touchend', handleTouchEnd);
     };
   }, [modalGroupIndex, grouped]);
@@ -384,8 +376,8 @@ function Collections() {
         </div>
       )}
 
-      {/* Filters */}
-      <div className="coll-filters">
+      {/* Filters - Desktop */}
+      <div className="coll-filters coll-filters-desktop">
         <div className="coll-filters-inner">
           {CATEGORIES.map(cat => {
             const meta = CATEGORY_META[cat];
@@ -401,6 +393,36 @@ function Collections() {
             );
           })}
         </div>
+      </div>
+
+      {/* Filters - Mobile */}
+      <div className="coll-filters-mobile">
+        <button className="coll-category-toggle" onClick={() => setShowCategoryMenu(!showCategoryMenu)}>
+          <i className="fas fa-filter"></i>
+          <span>{CATEGORY_META[activeFilter]?.label || 'Categories'}</span>
+          <i className={`fas fa-chevron-${showCategoryMenu ? 'up' : 'down'}`}></i>
+        </button>
+
+        {showCategoryMenu && (
+          <div className="coll-category-menu">
+            {CATEGORIES.map(cat => {
+              const meta = CATEGORY_META[cat];
+              return (
+                <button
+                  key={cat}
+                  className={`coll-category-item${activeFilter === cat ? ' active' : ''}`}
+                  onClick={() => {
+                    setActiveFilter(cat);
+                    setShowCategoryMenu(false);
+                  }}
+                >
+                  <i className={meta.icon}></i>
+                  <span>{meta.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        )}
       </div>
 
       {/* Products */}

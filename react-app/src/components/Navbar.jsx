@@ -1,8 +1,20 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+
+const CATEGORY_META = {
+  tops:        { label: 'Tops',        icon: 'fas fa-tshirt' },
+  skirttop:    { label: 'Skirt & Top', icon: 'fas fa-tshirt' },
+  lehenga:     { label: 'Lehenga',     icon: 'fas fa-tshirt' },
+  blouse:      { label: 'Blouse',      icon: 'fas fa-female' },
+  salwar:      { label: 'Salwar',      icon: 'fas fa-spa' },
+  frocks:      { label: 'Frocks',      icon: 'fas fa-star' },
+  kids:        { label: 'Kids',        icon: 'fas fa-child' },
+};
 
 function Navbar() {
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [submenuOpen, setSubmenuOpen] = useState(false);
   const close = () => setMenuOpen(false);
 
   return (
@@ -47,17 +59,39 @@ function Navbar() {
       {menuOpen && <div className="mobile-overlay" onClick={close} />}
 
       <div className={`mobile-menu${menuOpen ? ' open' : ''}`}>
-        <div className="mobile-menu-brand">
-          <img src="/images/title.jpeg" alt="Nila Instyle" />
-          <span>Nila Instyle</span>
-          <button className="mobile-menu-close" onClick={close} aria-label="Close menu">
-            <i className="fas fa-times"></i>
-          </button>
-        </div>
-
         <nav className="mobile-nav">
           <NavLink to="/" end onClick={close}><i className="fas fa-home"></i><span>Home</span></NavLink>
-          <NavLink to="/collections" onClick={close}><i className="fas fa-th-large"></i><span>Collections</span></NavLink>
+
+          <div className="mobile-nav-item-wrapper">
+            <button
+              className="mobile-nav-item-toggle"
+              onClick={() => setSubmenuOpen(!submenuOpen)}
+            >
+              <i className="fas fa-th-large"></i>
+              <span>Collections</span>
+              <i className={`fas fa-chevron-${submenuOpen ? 'up' : 'down'}`}></i>
+            </button>
+
+            {submenuOpen && (
+              <div className="mobile-submenu">
+                {Object.entries(CATEGORY_META).map(([key, meta]) => (
+                  <button
+                    key={key}
+                    className="mobile-submenu-item"
+                    onClick={() => {
+                      navigate(`/collections?category=${key}`);
+                      close();
+                      setSubmenuOpen(false);
+                    }}
+                  >
+                    <i className={meta.icon}></i>
+                    <span>{meta.label}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
           <NavLink to="/custom-order" onClick={close}><i className="fas fa-cut"></i><span>Custom Order</span></NavLink>
           <NavLink to="/about" onClick={close}><i className="fas fa-heart"></i><span>About</span></NavLink>
           <NavLink to="/contact" onClick={close}><i className="fas fa-envelope"></i><span>Contact</span></NavLink>

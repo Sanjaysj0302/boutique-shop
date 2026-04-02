@@ -42,11 +42,11 @@ const STEPS = [
 
 const FEATURED = [
   { id: 1, src: '/images/Blouse/blouse3.2.jpg?auto=compress&cs=tinysrgb&w=800', title: 'Wedding Blouse', category: 'Blouse', isNew: true },
-  { id: 2, src: '/images/Lehenga/lehenga2.1.jpg?auto=compress&cs=tinysrgb&w=800',         title: 'Stylish Party Wear',     category: 'Lehenga',   istrend: true },
-  { id: 3, src: '/images/Blouse/blouse2.2.jpg?auto=compress&cs=tinysrgb&w=800',         title: 'Designer Blouse',      category: 'Blouse',   featured: true },
-  { id: 4, src: '/images/Kids/kids13.JPEG?auto=compress&cs=tinysrgb&w=800', title: 'Kids Party Wear',    category: 'Kids', featured: true },
-  { id: 5, src: '/images/SkirtTop/skirt_top1.1.jpeg?auto=compress&cs=tinysrgb&w=800',         title: 'Mom Baby Sets',      category: 'Skit & Top' },
-  { id: 6, src: '/images/Kids/kids21.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Kids Party Wear',   category: 'Kids',  istrend: true },
+  { id: 2, src: '/images/Lehenga/lehenga2.1.jpg?auto=compress&cs=tinysrgb&w=800', title: 'Stylish Party Wear', category: 'Lehenga', istrend: true },
+  { id: 3, src: '/images/Blouse/blouse2.2.jpg?auto=compress&cs=tinysrgb&w=800', title: 'Designer Blouse', category: 'Blouse', featured: true },
+  { id: 4, src: '/images/Kids/kids13.JPEG?auto=compress&cs=tinysrgb&w=800', title: 'Kids Party Wear', category: 'Kids', featured: true },
+  { id: 5, src: '/images/SkirtTop/skirt_top1.1.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Mom Baby Sets', category: 'Skirt & Top' },
+  { id: 6, src: '/images/Kids/kids21.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Kids Party Wear', category: 'Kids', istrend: true },
 ];
 
 const TESTIMONIALS = [
@@ -266,7 +266,12 @@ function Home() {
               <div className="featured-img-wrap">
                 <img src={p.src} alt={p.title} />
                 <div className="featured-hover">
-                  <Link to="/collections" className="fp-view-btn">View All</Link>
+                  <Link
+                    to={`/collections?category=${p.category.toLowerCase().replace(/[\s&]+/g, '')}`}
+                    className="fp-view-btn"
+                  >
+                    View All
+                  </Link>
                   <a
                     href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi! I'm interested in: ${p.title} (${p.category})`)}`}
                     target="_blank" rel="noreferrer"
