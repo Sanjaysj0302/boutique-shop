@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Contact.css';
 
-const WHATSAPP_NUMBER = 918870178081
+const WHATSAPP_NUMBER = 919944363616
 const WHATSAPP_MSG = encodeURIComponent("Hi Nila Instyle! I'm interested in your collections.");
 
 const HOURS = [

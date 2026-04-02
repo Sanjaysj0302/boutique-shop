@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './CustomOrder.css';
 
-const WHATSAPP_NUMBER = 918870178081
+const WHATSAPP_NUMBER = 919944363616
 
 const SIZE_GUIDE = [
   { size: 'XS', bust: '32"', waist: '26"', hip: '36"' },
