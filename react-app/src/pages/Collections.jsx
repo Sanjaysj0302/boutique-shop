@@ -283,6 +283,12 @@ function Collections() {
     if (modalGroupIndex === null) return;
     const currentGroup = grouped[modalGroupIndex];
 
+    // Preload all images in the current group
+    currentGroup.variations.forEach((variation) => {
+      const img = new Image();
+      img.src = variation.src;
+    });
+
     // Prevent body scroll when lightbox is open
     document.body.style.overflow = 'hidden';
 
@@ -504,7 +510,13 @@ function Collections() {
               <i className="fas fa-chevron-left"></i>
             </button>
           )}
-          <img src={grouped[modalGroupIndex].variations[modalVariationIndex].src} alt="Preview" onClick={e => e.stopPropagation()} />
+          <img
+            src={grouped[modalGroupIndex].variations[modalVariationIndex].src}
+            alt="Preview"
+            onClick={e => e.stopPropagation()}
+            loading="eager"
+            decoding="async"
+          />
           {modalVariationIndex < grouped[modalGroupIndex].variations.length - 1 && (
             <button className="coll-lb-next" onClick={e => { e.stopPropagation(); setModalVariationIndex(i => i + 1); }}>
               <i className="fas fa-chevron-right"></i>
